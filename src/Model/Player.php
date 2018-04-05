@@ -24,6 +24,97 @@ class Player
 
     private $image;
 
+    private $availableAttacks;
+
+    const ATTACKS = [
+        [
+            'name' => 'Jet de livre',
+            'stat' =>  40,
+            'form' => '',
+            'icon' => '',
+            'image' => 'https://media.giphy.com/media/l0HlQI7WEN5gmUzgQ/giphy.gif',
+            'power' => 0
+        ],[
+            'name' => 'Ruse',
+            'stat' =>  70,
+            'form' => '',
+            'icon' => '',
+            'image' => 'https://media.giphy.com/media/MVlRUmPRsAnRe/giphy.gif',
+            'power' => 0
+        ],[
+            'name' => 'Sortilège',
+            'stat' => 100,
+            'form' => '',
+            'icon' => 'assets/images/iconAttack/sortilege.png',
+            'image' => 'https://media.giphy.com/media/l0ExsgrTuACbtPaqQ/giphy.gif',
+            'power' => 0
+        ],[
+            'name' => 'Petit projectile',
+            'stat' => 40,
+            'form' => '',
+            'icon' => '',
+            'image' => 'https://media.giphy.com/media/XwhEhu60cZI88/giphy.gif',
+            'power' => 0
+        ],[
+            'name' => 'Gros projectile',
+            'stat' => 70,
+            'form' => '',
+            'icon' => 'assets/images/iconAttack/grosprojectile.png',
+            'image' => 'assets/images/gifAttack/grosProjectile.gif',
+            'power' => 0
+        ],[
+            'name' => 'Gros rocher',
+            'stat' => 100,
+            'form' => '',
+            'icon' => '',
+            'image' => '',
+            'power' => 0
+        ],[
+            'name' => 'Sphère lumineuse',
+            'stat' => 40,
+            'form' => '',
+            'icon' => 'assets/images/iconAttack/sphere2.png',
+            'image' => '',
+            'power' => 0
+        ],[
+            'name' => 'Boule d\'énergie',
+            'stat' => 70,
+            'form' => '',
+            'icon' => 'assets/images/iconAttack/bouleenergie.png',
+            'image' => '',
+            'power' => 0
+        ],[
+            'name' => 'Rayon laser',
+            'stat' => 100,
+            'form' => '',
+            'icon' => 'assets/images/iconAttack/laserbeam.png',
+            'image' => '',
+            'power' => 0
+        ],[
+            'name' => 'Claque',
+            'stat' => 40,
+            'form' => '',
+            'icon' => 'assets/images/iconAttack/slap2.png',
+            'image' => 'assets/images/gifAttack/gifle.gif',
+            'power' => 0
+        ],[
+            'name' => 'Kicks',
+            'stat' => 70,
+            'form' => '',
+            'icon' => 'assets/images/iconAttack/23345424-kicking-foot-icon.jpg',
+            'image' => '',
+            'power' => 0
+        ],[
+            'name' => 'MEGA PUNCH',
+            'stat' => 100,
+            'form' => '',
+            'icon' => 'assets/images/iconAttack/attack.png',
+            'image' => '',
+            'power' => 0
+        ],
+    ];
+
+
     public function __construct($objFromApi)
     {
         $this->setId($objFromApi->id);
@@ -37,6 +128,56 @@ class Player
         $this->setCombat($objFromApi->powerstats->combat);
 
         $this->setImage($objFromApi->images->lg);
+
+        if($this->intelligence <= self::ATTACKS[0]['stat']){
+            $this->setAvailableAttacks(self::ATTACKS[0]);
+        } elseif ($this->intelligence <= self::ATTACKS[1]['stat']) {
+            $this->setAvailableAttacks(self::ATTACKS[1]);
+        } elseif ($this->intelligence <= self::ATTACKS[2]['stat']) {
+            $this->setAvailableAttacks(self::ATTACKS[2]);
+        }
+
+        if($this->strength <= self::ATTACKS[3]['stat']){
+            $this->setAvailableAttacks(self::ATTACKS[3]);
+        } elseif ($this->strength <= self::ATTACKS[4]['stat']) {
+            $this->setAvailableAttacks(self::ATTACKS[4]);
+        } elseif ($this->strength <= self::ATTACKS[5]['stat']) {
+            $this->setAvailableAttacks(self::ATTACKS[5]);
+        }
+
+        if($this->power <= self::ATTACKS[6]['stat']){
+            $this->setAvailableAttacks(self::ATTACKS[6]);
+        } elseif ($this->power <= self::ATTACKS[7]['stat']) {
+            $this->setAvailableAttacks(self::ATTACKS[7]);
+        } elseif ($this->power <= self::ATTACKS[8]['stat']) {
+            $this->setAvailableAttacks(self::ATTACKS[8]);
+        }
+
+        if($this->power <= self::ATTACKS[9]['stat']){
+            $this->setAvailableAttacks(self::ATTACKS[9]);
+        } elseif ($this->power <= self::ATTACKS[10]['stat']) {
+            $this->setAvailableAttacks(self::ATTACKS[10]);
+        } elseif ($this->power <= self::ATTACKS[11]['stat']) {
+            $this->setAvailableAttacks(self::ATTACKS[11]);
+        }
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAvailableAttacks()
+    {
+        return $this->availableAttacks;
+    }
+
+    /**
+     * @param mixed $availableAttacks
+     * @return Player
+     */
+    public function setAvailableAttacks($attack)
+    {
+        $this->availableAttacks[] = $attack;
+        return $this;
     }
 
     /**

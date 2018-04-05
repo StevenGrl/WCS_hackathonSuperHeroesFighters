@@ -1,6 +1,8 @@
 body{
     background-image: url('../images/background.png');
     color:#EEE;
+    font-family: 'Press Start 2P', cursive;
+
 }
 
 .lifebars{
@@ -34,24 +36,26 @@ body{
 }
 
 .display{
-    height:600px;
+    height:500px;
 }
 
 .versus{
-    height:300px;
-    top:150px;
+    height:250px;
+    top:50px;
 }
 
-.portrait1{
+.messages{
+    height:100px;
+}
+
+.portrait1 img{
     border:solid 5px #EEE;
-    height:600px;
     color:#EEE;
 }
 
-.portrait2{
+.portrait2 img{
     border:solid 5px #EEE;
     transform: scale(-1,1);
-    height:600px;
     color:#EEE;
 }
 

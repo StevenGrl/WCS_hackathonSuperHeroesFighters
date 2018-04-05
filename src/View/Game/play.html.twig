@@ -7,37 +7,42 @@
     <div class="container">
         <div class="row lifebars align-middle" id="lifebars">
             <div class="col-xs-6 lifebar1 lifebar" id="lifebar1">
-                <div class="progressbar" style="width:75%"></div>
+                <div class="progressbar" style="width:{{ game.players[0].life }}%"></div>
             </div>
             <div class="col-xs-6 lifebar2 lifebar" id="lifebar2">
-                <div class="progressbar" style="width:100%"></div>
+                <div class="progressbar" style="width:{{ game.players[1].life }}%"></div>
             </div>
-            <div class="name col-xs-6"> NOM PERSO 1</div>
-            <div class="name col-xs-6 text-right"> NOM PERSO 2</div>
+            <div class="name col-xs-6 text-left">{{ game.players[0].name }}</div>
+            <div class="name col-xs-6 text-right"> {{ game.players[1].name }}</div>
         </div>
         <div class="row display">
-            <div class="col-xs-4 portrait1">
-                IMAGE JOUEUR 1
+            <div class="col-xs-4 portrait1 text-align">
+                <img src="{{ game.players[0].image }}" class="img-responsive">
             </div>
             <div class="col-xs-4 versus">
                 <img src="assets/images/versus.png" class="img-responsive">
+                <div id="messages" class="messages">
+                    {# Message de rapport d'attaque a inserer ici #}
+                    C'est au Joueur {{ game.currentPlayerIndex+1 }} d'attaquer.
+                </div>
             </div>
-            <div class="col-xs-4 portrait2">
-                IMAGE JOUEUR 2
+            <div class="col-xs-4 portrait2 text-align">
+                <img src="{{ game.players[1].image }}" class="img-responsive">
             </div>
         </div>
         <div class="row attacks-list">
             <div class="col-xs-6 attacks1 attacks">
-                <div class="attack-title">Attaques de {{ persoJ1 }}</div>
-                <button class="attack text-center"><img src="assets/images/attack.png" class="img-responsive"/></button>
-                <button class="attack text-center"><img src="assets/images/attack.png" class="img-responsive"/></button>
+                <div class="attack-title">Attaques de {{ game.players[0].name }}</div>
+                {% for attack in game.players[0].availableAttacks %}
+                <button class="attack text-center" title="{{ attack.name }}"><img src="{{ attack.icon }}" class="img-responsive"/></button>
+                {% endfor %}
             </div>
             <div class="col-xs-6 attacks2 attacks">
-                <div class="attack-title">Attaques de {{ persoJ2 }}</div>
-                <button class="attack text-center"><img src="assets/images/attack.png" class="img-responsive"/></button>
-                <button class="attack text-center"><img src="assets/images/attack.png" class="img-responsive"/></button>
+                <div class="attack-title">Attaques de {{ game.players[1].name }}</div>
+                {% for attack in game.players[1].availableAttacks %}
+                    <button class="attack text-center" title="{{ attack.name }}"><img src="{{ attack.icon }}" class="img-responsive"/></button>
+                {% endfor %}
             </div>
-
         </div>
     </div>
 {% endblock %}
