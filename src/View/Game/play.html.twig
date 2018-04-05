@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="/assets/css/play.css">
 {% endblock %}
 {%  block content %}
+    {{ dump(game.currentPlayerIndex) }}
     <div class="container">
         <div class="row lifebars align-middle" id="lifebars">
             <div class="col-xs-6 lifebar1 lifebar" id="lifebar1">
@@ -36,7 +37,7 @@
                 {% for attack in game.players[0].availableAttacks %}
                     <form method="post">
                         <input type="hidden" name="attack" value="{{ attack.id }}">
-                        <button type="submit" class="attack text-center" title="{{ attack.name }}"><img src="{{ attack.icon }}" class="img-responsive"/></button>
+                        <button type="submit" class="attack text-center" title="{{ attack.name }}" {% if(game.currentPlayerIndex==1) %}disabled{% endif %}><img src="{{ attack.icon }}" class="img-responsive"/></button>
                     </form>
                 {% endfor %}
             </div>
@@ -45,7 +46,7 @@
                 {% for attack in game.players[1].availableAttacks %}
                     <form method="post">
                         <input type="hidden" name="attack" value="{{ attack.id }}">
-                        <button type="submit" class="attack text-center" title="{{ attack.name }}"><img src="{{ attack.icon }}" class="img-responsive"/></button>
+                        <button type="submit" class="attack text-center" title="{{ attack.name }}" {% if(game.currentPlayerIndex==0) %}disabled{% endif %}><img src="{{ attack.icon }}" class="img-responsive"/></button>
                     </form>
                 {% endfor %}
             </div>
