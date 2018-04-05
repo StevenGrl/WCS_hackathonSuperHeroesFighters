@@ -4,7 +4,10 @@ body{
     font-family: 'Press Start 2P', cursive;
     background-size: auto;
     background-repeat: repeat;
+}
 
+form {
+    display: inline;
 }
 
 .lifebars{

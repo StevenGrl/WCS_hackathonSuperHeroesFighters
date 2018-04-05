@@ -108,6 +108,23 @@ class Game
         $this->currentPlayerIndex = $currentPlayerIndex;
     }
 
+    public function doAttack($id)
+    {
+        $attack = Player::ATTACKS[$id];
+        if ($this->getCurrentPlayerIndex() == 0) {
+            $defenser = 1;
+        } else {
+            $defenser = 0;
+        }
+        $playerDefenser = $this->getPlayers()[$defenser];
+
+        $currentLife = $playerDefenser->getCurrentLife();
+
+        $currentLife -= $attack['stat'];
+
+        $playerDefenser->setCurrentLife($currentLife);
+    }
+
     public function nextTurn()
     {
         $currentPlayerIndex = $this->getCurrentPlayerIndex();
@@ -126,7 +143,7 @@ class Game
     {
         $players = $this->getPlayers();
         foreach ($players as $player) {
-            if ($player->getLife() < 1) {
+            if ($player->getCurrentLife() < 1) {
                 return true;
             }
         }
