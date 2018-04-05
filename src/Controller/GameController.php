@@ -18,14 +18,9 @@ class GameController extends AbstractController
     public function index()
     {
         //Rien de spécial
-        return $this->twig->render('Game/play.html.twig');
+        return $this->twig->render('Game/index.html.twig');
     }
 
-    public function selectplayer()
-    {
-        //Rien de spécial
-        return $this->twig->render('Game/selectplayer.html.twig');
-    }
 
 
     /**
