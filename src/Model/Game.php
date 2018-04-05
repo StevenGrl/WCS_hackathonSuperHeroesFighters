@@ -120,7 +120,18 @@ class Game
 
         $currentLife = $playerDefenser->getCurrentLife();
 
-        $currentLife -= $attack['stat'];
+        $pointsToLoose = $attack['stat'];
+        $currentLife -= $pointsToLoose;
+
+        //add To log
+        $currentPlayer = $this->getPlayers()[$this->getCurrentPlayerIndex()];
+        $currentPlayerName = $currentPlayer->getName();
+        $playerDefenserName = $playerDefenser->getName();
+        $attackName = $attack['name'];
+        $verb = 'todo';
+        $addToLog = sprintf('%s %s %s inflige %d points de dégâts à %s', $currentPlayerName, $verb, $attackName, $pointsToLoose, $playerDefenserName);
+
+        $this->addToLog($addToLog);
 
         $playerDefenser->setCurrentLife($currentLife);
     }
@@ -149,6 +160,24 @@ class Game
         }
         return false;
     }
+
+    /**
+     * LOG   0 => Machin commence
+     *   1 => Tour 1 : Machin : Nom de l'attaque inflige - 20 à Machin2
+     */
+
+    public function addToLog($str)
+    {
+        $this->log[] = $str;
+
+    }
+
+
+    public function getLog(): array
+    {
+        return $this->log;
+    }
+
 
     /**
      * API SUPERHEROES
