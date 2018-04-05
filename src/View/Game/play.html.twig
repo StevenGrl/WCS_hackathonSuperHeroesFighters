@@ -1,0 +1,43 @@
+{% extends 'layout.html.twig' %}
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="/assets/css/play.css">
+{% endblock %}
+{%  block content %}
+    <div class="container">
+        <div class="row lifebars align-middle" id="lifebars">
+            <div class="col-xs-6 lifebar1 lifebar" id="lifebar1">
+                <div class="progressbar" style="width:75%"></div>
+            </div>
+            <div class="col-xs-6 lifebar2 lifebar" id="lifebar2">
+                <div class="progressbar" style="width:100%"></div>
+            </div>
+            <div class="name col-xs-6"> NOM PERSO 1</div>
+            <div class="name col-xs-6 text-right"> NOM PERSO 2</div>
+        </div>
+        <div class="row display">
+            <div class="col-xs-4 portrait1">
+                IMAGE JOUEUR 1
+            </div>
+            <div class="col-xs-4 versus">
+                <img src="assets/images/versus.png" class="img-responsive">
+            </div>
+            <div class="col-xs-4 portrait2">
+                IMAGE JOUEUR 2
+            </div>
+        </div>
+        <div class="row attacks-list">
+            <div class="col-xs-6 attacks1 attacks">
+                <div class="attack-title">Attaques de {{ persoJ1 }}</div>
+                <button class="attack text-center"><img src="assets/images/attack.png" class="img-responsive"/></button>
+                <button class="attack text-center"><img src="assets/images/attack.png" class="img-responsive"/></button>
+            </div>
+            <div class="col-xs-6 attacks2 attacks">
+                <div class="attack-title">Attaques de {{ persoJ2 }}</div>
+                <button class="attack text-center"><img src="assets/images/attack.png" class="img-responsive"/></button>
+                <button class="attack text-center"><img src="assets/images/attack.png" class="img-responsive"/></button>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
