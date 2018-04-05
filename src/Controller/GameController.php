@@ -53,12 +53,19 @@ class GameController extends AbstractController
         if($game->getCurrentPlayerIndex() == -1)
         {
             //todo choisir selon speed
-            $game->setCurrentPlayerIndex(0);
+            $players = $game->getPlayers();
+            if ($players[0]->getSpeed() >= $players[1]->getSpeed()) {
+                $game->setCurrentPlayerIndex(0);
+            } elseif ($players[0]->getSpeed() <= $players[1]->getSpeed()) {
+                $game->setCurrentPlayerIndex(1);
+            } else {
+                $game->setCurrentPlayerIndex(rand(0,1));
+            }
         }
 
 
-        if(!empty($_POST['attack'])){
-            //todo
+        if(isset($_POST['attack'])){
+            //todo Check F5
             $game->doAttack($_POST['attack']);
 
             $game->nextTurn();
