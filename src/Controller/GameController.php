@@ -40,14 +40,29 @@ class GameController extends AbstractController
                 foreach ($newPlayersIds as $id) {
                     $game->addPlayer($id);
                 }
-                $game->saveToSession();
-
-            } else { //Sinon renvoyer vers vue select
+            } else { //Sinon renvoyer vers vue selection joueurs
                 return $this->selectPlayers();
             }
         }
 
-        return $this->twig->render('Game/play.html.twig');
+        //Début du game
+        if($game->getCurrentPlayerIndex() == -1)
+        {
+            //todo choisir selon speed
+            $game->setCurrentPlayerIndex(0);
+        }
+
+
+        if(!empty($_POST['attack'])){
+            //todo
+            var_dump('attack');
+            $game->nextTurn();
+
+        }
+
+        $game->saveToSession();
+
+        return $this->twig->render('Game/play.html.twig', ['game'=>$game]);
 
     }
 
