@@ -24,6 +24,7 @@ class GameController extends AbstractController
     }
 
 
+
     /**
      * Logique du jeu
      */
@@ -52,7 +53,14 @@ class GameController extends AbstractController
         if($game->getCurrentPlayerIndex() == -1)
         {
             //todo choisir selon speed
-            $game->setCurrentPlayerIndex(0);
+            $players = $game->getPlayers();
+            if ($players[0]->getSpeed() >= $players[1]->getSpeed()) {
+                $game->setCurrentPlayerIndex(0);
+            } elseif ($players[0]->getSpeed() <= $players[1]->getSpeed()) {
+                $game->setCurrentPlayerIndex(1);
+            } else {
+                $game->setCurrentPlayerIndex(rand(0,1));
+            }
         }
 
 
