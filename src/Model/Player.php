@@ -22,6 +22,23 @@ class Player
     private $power;
     private $combat;
 
+    private $image;
+
+    public function __construct($objFromApi)
+    {
+        $this->setId($objFromApi->id);
+        $this->setName($objFromApi->name);
+
+        $this->setIntelligence($objFromApi->powerstats->intelligence);
+        $this->setStrength($objFromApi->powerstats->strength);
+        $this->setSpeed($objFromApi->powerstats->speed);
+        $this->setDurability($objFromApi->powerstats->durability);
+        $this->setPower($objFromApi->powerstats->power);
+        $this->setCombat($objFromApi->powerstats->combat);
+
+        $this->setImage($objFromApi->images->lg);
+    }
+
     /**
      * @return mixed
      */
@@ -164,5 +181,21 @@ class Player
     {
         $this->combat = $combat;
         return $this;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image): void
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }
