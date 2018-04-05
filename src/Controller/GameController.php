@@ -64,8 +64,8 @@ class GameController extends AbstractController
         }
 
 
-        if(!empty($_POST['attack'])){
-            //todo
+        if(isset($_POST['attack'])){
+            //todo Check F5
             $game->doAttack($_POST['attack']);
 
             $game->nextTurn();
