@@ -48,12 +48,6 @@ class GameController extends AbstractController
             }
         }
 
-        //Si un des deux joueurs est KO
-        //Todo: UNCOMMENT when Player->getLife() exists
-//        if($game->isOneKo()){
-//            return $this->end();
-//
-//        }
 
         //Début du game
         if($game->getCurrentPlayerIndex() == -1)
@@ -65,9 +59,15 @@ class GameController extends AbstractController
 
         if(!empty($_POST['attack'])){
             //todo
-            var_dump('attack');
+            $game->doAttack($_POST['attack']);
+
             $game->nextTurn();
 
+        }
+        //Si un des deux joueurs est KO
+        //Return vue end
+        if($game->isOneKo()){
+            return $this->end();
         }
 
         $game->saveToSession();
@@ -99,7 +99,6 @@ class GameController extends AbstractController
     {
         //TODO get log and pass to twig
         return $this->twig->render('Game/end.html.twig');
-
 
     }
 

@@ -7,10 +7,10 @@
     <div class="container">
         <div class="row lifebars align-middle" id="lifebars">
             <div class="col-xs-6 lifebar1 lifebar" id="lifebar1">
-                <div class="progressbar" style="width:{{ game.players[0].life }}%"></div>
+                <div class="progressbar" style="width:{{ game.players[0].currentLife/10 }}%"></div>
             </div>
             <div class="col-xs-6 lifebar2 lifebar" id="lifebar2">
-                <div class="progressbar" style="width:{{ game.players[1].life }}%"></div>
+                <div class="progressbar" style="width:{{ game.players[1].currentLife/10 }}%"></div>
             </div>
             <div class="name col-xs-6 text-left">{{ game.players[0].name }}</div>
             <div class="name col-xs-6 text-right"> {{ game.players[1].name }}</div>
@@ -36,7 +36,7 @@
                 {% for attack in game.players[0].availableAttacks %}
                     <form method="post">
                         <input type="hidden" name="attack" value="{{ attack.id }}">
-                        <button type="submit" class="attack text-center" title="{{ attack.name }}"><img src="{{ attack.icon }}" class="img-responsive"/></button>
+                        <button type="submit" class="attack text-center" title="{{ attack.name }}" {% if(game.currentPlayerIndex==1) %}disabled{% endif %}><img src="{{ attack.icon }}" class="img-responsive"/></button>
                     </form>
                 {% endfor %}
             </div>
@@ -45,7 +45,7 @@
                 {% for attack in game.players[1].availableAttacks %}
                     <form method="post">
                         <input type="hidden" name="attack" value="{{ attack.id }}">
-                        <button type="submit" class="attack text-center" title="{{ attack.name }}"><img src="{{ attack.icon }}" class="img-responsive"/></button>
+                        <button type="submit" class="attack text-center" title="{{ attack.name }}" {% if(game.currentPlayerIndex==0) %}disabled{% endif %}><img src="{{ attack.icon }}" class="img-responsive"/></button>
                     </form>
                 {% endfor %}
             </div>
