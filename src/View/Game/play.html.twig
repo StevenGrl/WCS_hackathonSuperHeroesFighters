@@ -4,14 +4,13 @@
     <link rel="stylesheet" href="/assets/css/play.css">
 {% endblock %}
 {%  block content %}
-    {{ dump(game.currentPlayerIndex) }}
     <div class="container">
         <div class="row lifebars align-middle" id="lifebars">
             <div class="col-xs-6 lifebar1 lifebar" id="lifebar1">
-                <div class="progressbar" style="width:{{ game.players[0].life }}%"></div>
+                <div class="progressbar" style="width:{{ game.players[0].currentLife/10 }}%"></div>
             </div>
             <div class="col-xs-6 lifebar2 lifebar" id="lifebar2">
-                <div class="progressbar" style="width:{{ game.players[1].life }}%"></div>
+                <div class="progressbar" style="width:{{ game.players[1].currentLife/10 }}%"></div>
             </div>
             <div class="name col-xs-6 text-left">{{ game.players[0].name }}</div>
             <div class="name col-xs-6 text-right"> {{ game.players[1].name }}</div>
