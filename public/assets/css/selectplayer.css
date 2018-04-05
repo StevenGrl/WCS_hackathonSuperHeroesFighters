@@ -4,8 +4,11 @@ body {
 }
 
 
-.player2 {
+/*.player2 {
     text-align: right;
+}*/
+#name1 {
+    text-align: left;
 }
 
 #player2-image{
