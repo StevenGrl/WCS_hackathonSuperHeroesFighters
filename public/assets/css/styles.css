@@ -1,12 +1,12 @@
 
 .bandeau {
-    font-size: 150px;
+    font-size: 80px;
     color: #ffa500;
 }
 
 #enter {
     background-color: #ffc11a;
-    font-size: 40px;
+    font-size: 30px;
     position: relative;
     top: 50vh;
     transition: all 600ms ease;
@@ -40,5 +40,5 @@ body {
     text-align: center;
     vertical-align: baseline;
     margin-bottom: 50px;
-    font-family: 'Fontdiner Swanky', cursive;
+    font-family: 'Press Start 2P', cursive;
 }
