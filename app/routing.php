@@ -10,7 +10,7 @@
  */
 
 $routes = [
-    'Player' => [ // Controller
+    'Game' => [ // Controller
         ['index', '/', 'GET'], // action, url, method
     ],
 ];

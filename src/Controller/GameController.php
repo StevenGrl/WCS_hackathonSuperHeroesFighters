@@ -9,7 +9,7 @@
 namespace Controller;
 
 
-class PlayerController extends AbstractController
+class GameController extends AbstractController
 {
     public function index()
     {
