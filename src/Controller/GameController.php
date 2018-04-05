@@ -9,6 +9,7 @@
 namespace Controller;
 
 use Model\Game;
+
 class GameController extends AbstractController
 {
 
