@@ -21,6 +21,7 @@ class Player
     private $durability;
     private $power;
     private $combat;
+    private $currentLife;
 
     private $image;
 
@@ -138,6 +139,7 @@ class Player
         $this->setDurability($objFromApi->powerstats->durability);
         $this->setPower($objFromApi->powerstats->power);
         $this->setCombat($objFromApi->powerstats->combat);
+        $this->setCurrentLife(self::LIFEPOINT);
 
         $this->setImage($objFromApi->images->lg);
 
@@ -189,6 +191,24 @@ class Player
     public function setAvailableAttacks($attack)
     {
         $this->availableAttacks[] = $attack;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCurrentLife()
+    {
+        return $this->currentLife;
+    }
+
+    /**
+     * @param mixed $currentLife
+     * @return Player
+     */
+    public function setCurrentLife($currentLife)
+    {
+        $this->currentLife = $currentLife;
         return $this;
     }
 

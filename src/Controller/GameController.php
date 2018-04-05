@@ -64,7 +64,8 @@ class GameController extends AbstractController
 
         if(!empty($_POST['attack'])){
             //todo
-            var_dump('attack');
+            $game->doAttack($_POST['attack']);
+
             $game->nextTurn();
 
         }
