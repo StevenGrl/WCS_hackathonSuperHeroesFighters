@@ -9,6 +9,8 @@
 namespace Controller;
 
 
+use Model\Game;
+
 class GameController extends AbstractController
 {
 
@@ -17,6 +19,9 @@ class GameController extends AbstractController
      */
     public function index()
     {
+        $game = new Game();
+        $game->recupPersos();
+
         //Rien de spécial
         return $this->twig->render('Game/index.html.twig');
     }
