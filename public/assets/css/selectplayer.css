@@ -1,0 +1,28 @@
+body {
+    background-image : url("../images/background.png");
+    color: white;
+}
+
+
+.player2 {
+    text-align: right;
+}
+
+h1, h2 {
+    font-family: 'Press Start 2P', cursive;
+}
+
+.select_thumb {
+    margin-top: 50px;
+}
+
+.thumbnail {
+    padding: 0;
+    border: 1px solid black;
+}
+
+.thumbnail:hover {
+    box-shadow: 3px 3px 20px white;
+    opacity: 0.8;
+
+}
