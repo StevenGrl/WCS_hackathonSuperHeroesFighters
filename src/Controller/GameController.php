@@ -8,7 +8,7 @@
 
 namespace Controller;
 
-
+use Model\Game;
 class GameController extends AbstractController
 {
 
@@ -22,11 +22,33 @@ class GameController extends AbstractController
     }
 
 
+
     /**
      * Logique du jeu
      */
     public function play()
     {
+
+        $game = Game::getInstance();
+
+
+        if(count($game->getPlayers()) < 2 ){
+
+
+
+            if( !empty($_POST['players']) ){
+
+                $game->addPlayer('Brice');
+                $game->addPlayer('Cyril');
+                $game->saveToSession();
+             //TODO   $game->addPlayers(...)
+            }
+            else{
+                return $this->selectPlayers();}
+        }
+
+
+    return $this->twig->render('Game/play.html.twig');
         //1. récupère info de sessions
 
 
@@ -44,11 +66,12 @@ class GameController extends AbstractController
      */
     public function selectPlayers()
     {
-        //1. vérifie info de sessions
-        //2. Si nb joueurs < 2
-        // continue vers select Players
-        //Sinon
-        //$this->play()
+
+        $game = Game::getInstance();
+        $heroes = $game->getRandomSuperheroes();
+        $data = compact('heroes');
+
+      return $this->twig->render('Game/selectplayer.html.twig', $data);
 
     }
 

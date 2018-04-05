@@ -1,0 +1,42 @@
+
+{% extends 'layout.html.twig' %}
+{% block stylesheet %}
+    <link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Passion+One|Press+Start+2P" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/selectplayer.css">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+    <h1>Selectionnez votre personnage</h1>
+
+    <div class="row">
+        <div class="col-xs-4 col-sm-4 player1">
+        <h2>Joueur 1 :</h2>
+        <img src="http://via.placeholder.com/350x400" alt="player one">
+        </div>
+
+        <div class="col-xs-4 col-xs-offset-4 col-sm-offset-4 col-sm-4 player2">
+        <h2>Joueur 2 :</h2>
+        <img src="http://via.placeholder.com/350x400" alt="player one">
+        </div>
+    </div>
+
+    <div class="row select_thumb">
+    {% for hero in heroes %}
+        <div class="col-xs-4 col-md-1">
+            <a href="#" class="thumbnail">
+                <img src="{{ hero.images.lg }}" alt="">
+            </a>
+        </div>
+    {% endfor %}
+    </div>
+        {#ONLY FOR TESTING  #}
+        <form action="" method="post">
+            <input type="hidden" name="players[]" value="{{ heroes[0].id }}">
+            <input type="hidden" name="players[]" value="{{ heroes[1].id }}">
+            <button type="submit" class="btn btn-primary">Valider</button>
+
+        </form>
+    </div>
+{% endblock %}

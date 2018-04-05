@@ -1,0 +1,68 @@
+body{
+    background-image: url('../images/background.png');
+    color:#EEE;
+}
+
+.lifebars{
+    height: 100px;
+}
+
+.lifebar{
+    margin-top:25px;
+    height: 50px;
+}
+
+.lifebar1{
+    background-color:#000;
+    border-radius:25px;
+}
+
+.lifebar2{
+    background-color:#000;
+    border-radius:25px;
+    transform: scale(-1,1);
+}
+
+.name{
+}
+
+.progressbar{
+    border-radius:20px;
+    background:linear-gradient(to right, red, yellow);
+    margin-top:5px;
+    height: 40px;
+}
+
+.display{
+    height:600px;
+}
+
+.versus{
+    height:300px;
+    top:150px;
+}
+
+.portrait1{
+    border:solid 5px #EEE;
+    height:600px;
+    color:#EEE;
+}
+
+.portrait2{
+    border:solid 5px #EEE;
+    transform: scale(-1,1);
+    height:600px;
+    color:#EEE;
+}
+
+.attacks-list{
+    height:300px;
+}
+
+.attack{
+    display:inline-block;
+    width:95px;
+    height:95px;
+    border:solid 5px #333;
+}
+
