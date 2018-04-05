@@ -1,0 +1,33 @@
+footer{
+    background-color: #424242;
+    height: 10vw;
+}
+
+.social-list{
+    margin-left: 25vw;
+}
+
+.w-socials-item{
+    font-size: 20px;
+    border-color: #35383a;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    margin: 1em;
+    line-height: 2.5em;
+}
+
+.w-socials-item-link{
+    color: white;
+    background-color: #1796ea;
+}
+
+.facebook .w-socials-item-link:hover{
+    text-decoration: none;
+    background-color: #42599e;
+}
+
+.twitter .w-socials-item-link:hover{
+    text-decoration: none;
+    background-color: #55acee;
+}
