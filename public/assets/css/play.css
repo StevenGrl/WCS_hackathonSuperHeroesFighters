@@ -2,7 +2,10 @@ body{
     background-image: url('../images/background.png');
     color:#EEE;
     font-family: 'Press Start 2P', cursive;
+}
 
+form {
+    display: inline;
 }
 
 .lifebars{
