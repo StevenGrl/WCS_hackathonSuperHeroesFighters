@@ -28,20 +28,23 @@ class Player
 
     const ATTACKS = [
         [
+            'id' => 0,
             'name' => 'Jet de livre',
             'stat' =>  40,
             'form' => '',
-            'icon' => '',
+            'icon' => 'assets/images/iconAttack/book.jpg',
             'image' => 'https://media.giphy.com/media/l0HlQI7WEN5gmUzgQ/giphy.gif',
             'power' => 0
         ],[
+            'id' => 1,
             'name' => 'Ruse',
             'stat' =>  70,
             'form' => '',
-            'icon' => '',
+            'icon' => 'assets/images/iconAttack/brain.png',
             'image' => 'https://media.giphy.com/media/MVlRUmPRsAnRe/giphy.gif',
             'power' => 0
         ],[
+            'id' => 2,
             'name' => 'Sortilège',
             'stat' => 100,
             'form' => '',
@@ -49,13 +52,15 @@ class Player
             'image' => 'https://media.giphy.com/media/l0ExsgrTuACbtPaqQ/giphy.gif',
             'power' => 0
         ],[
+            'id' => 3,
             'name' => 'Petit projectile',
             'stat' => 40,
             'form' => '',
-            'icon' => '',
+            'icon' => 'assets/images/iconAttack/petitprojectile.jpg',
             'image' => 'https://media.giphy.com/media/XwhEhu60cZI88/giphy.gif',
             'power' => 0
         ],[
+            'id' => 4,
             'name' => 'Gros projectile',
             'stat' => 70,
             'form' => '',
@@ -63,13 +68,15 @@ class Player
             'image' => 'assets/images/gifAttack/grosProjectile.gif',
             'power' => 0
         ],[
+            'id' => 5,
             'name' => 'Gros rocher',
             'stat' => 100,
             'form' => '',
-            'icon' => '',
+            'icon' => 'assets/images/iconAttack/rocher.png',
             'image' => '',
             'power' => 0
         ],[
+            'id' => 6,
             'name' => 'Sphère lumineuse',
             'stat' => 40,
             'form' => '',
@@ -77,6 +84,7 @@ class Player
             'image' => '',
             'power' => 0
         ],[
+            'id' => 7,
             'name' => 'Boule d\'énergie',
             'stat' => 70,
             'form' => '',
@@ -84,6 +92,7 @@ class Player
             'image' => '',
             'power' => 0
         ],[
+            'id' => 8,
             'name' => 'Rayon laser',
             'stat' => 100,
             'form' => '',
@@ -91,6 +100,7 @@ class Player
             'image' => '',
             'power' => 0
         ],[
+            'id' => 9,
             'name' => 'Claque',
             'stat' => 40,
             'form' => '',
@@ -98,6 +108,7 @@ class Player
             'image' => 'assets/images/gifAttack/gifle.gif',
             'power' => 0
         ],[
+            'id' => 10,
             'name' => 'Kicks',
             'stat' => 70,
             'form' => '',
@@ -105,6 +116,7 @@ class Player
             'image' => '',
             'power' => 0
         ],[
+            'id' => 11,
             'name' => 'MEGA PUNCH',
             'stat' => 100,
             'form' => '',
