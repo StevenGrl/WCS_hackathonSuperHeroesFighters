@@ -122,6 +122,17 @@ class Game
 
     }
 
+    public function isOneKo()
+    {
+        $players = $this->getPlayers();
+        foreach ($players as $player) {
+            if ($player->getLife() < 1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * API SUPERHEROES
      */

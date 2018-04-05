@@ -18,7 +18,8 @@ class GameController extends AbstractController
      */
     public function index()
     {
-        //Rien de spécial
+        $game = Game::getInstance();
+        $game->destroy();
         return $this->twig->render('Game/index.html.twig');
     }
 
@@ -35,6 +36,7 @@ class GameController extends AbstractController
         if (count($game->getPlayers()) < 2) {
 
             //Si nouveaux joueurs en POST
+            // TODO CHECK if random
             if (!empty($_POST['players'])) {
                 $newPlayersIds = $_POST['players'];
                 foreach ($newPlayersIds as $id) {
@@ -44,6 +46,13 @@ class GameController extends AbstractController
                 return $this->selectPlayers();
             }
         }
+
+        //Si un des deux joueurs est KO
+        //Todo: UNCOMMENT when Player->getLife() exists
+//        if($game->isOneKo()){
+//            return $this->end();
+//
+//        }
 
         //Début du game
         if($game->getCurrentPlayerIndex() == -1)
@@ -87,9 +96,9 @@ class GameController extends AbstractController
      */
     public function end()
     {
-        //1. Affiche session log et résumé
-        //2. unset($_SESSION['game']);
-        //2. button restart
+        //TODO get log and pass to twig
+        return $this->twig->render('Game/end.html.twig');
+
 
     }
 
