@@ -6,16 +6,33 @@
 
 #enter {
     background-color: #ffc11a;
-    font-size: 20px;
+    font-size: 40px;
     position: relative;
-    top: 25vh;
-    right: 30vw;
+    top: 50vh;
+    transition: all 600ms ease;
+}
+
+#enter:hover {
+    background-color: black;
+    color: #ffc11a;
+    box-shadow: inset 0 0 0 3px #3a7999;
+    border: 2px solid black;
+}
+
+a {
+    color: black;
+}
+
+a:focus, a:hover {
+    color: white;
+    text-decoration: none;
+
 }
 
 body {
     max-height: 100vh;
     width: 100%;
-    background-image: url("../images/background.jpg");
+    background-image: url("https://wallpaperbrowse.com/media/images/o-SUPERHEROES-FIGURES-facebook.jpg");
     background-repeat: no-repeat;
     background-position: right top;
     background-attachment: fixed;
