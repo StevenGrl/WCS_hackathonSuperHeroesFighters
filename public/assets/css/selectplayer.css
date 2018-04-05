@@ -8,6 +8,10 @@ body {
     text-align: right;
 }
 
+#player2-image{
+    transform: scale(-1,1);
+}
+
 h1, h2 {
     font-family: 'Press Start 2P', cursive;
 }
@@ -24,5 +28,8 @@ h1, h2 {
 .thumbnail:hover {
     box-shadow: 3px 3px 20px white;
     opacity: 0.8;
+}
 
+.img-responsive{
+    border: 2px solid #000000;
 }
