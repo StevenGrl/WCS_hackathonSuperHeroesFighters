@@ -28,16 +28,17 @@
         </div>
         <div class="row attacks-list">
             <div class="col-xs-6 attacks1 attacks">
-                <div class="attack-title">Attaques de {{ persoJ1 }}</div>
-                <button class="attack text-center"><img src="assets/images/attack.png" class="img-responsive"/></button>
-                <button class="attack text-center"><img src="assets/images/attack.png" class="img-responsive"/></button>
+                <div class="attack-title">Attaques de {{ game.players[0].name }}</div>
+                {% for attack in game.players[0].availableAttacks %}
+                <button class="attack text-center" title="{{ attack.name }}"><img src="{{ attack.icon }}" class="img-responsive"/></button>
+                {% endfor %}
             </div>
             <div class="col-xs-6 attacks2 attacks">
-                <div class="attack-title">Attaques de {{ persoJ2 }}</div>
-                <button class="attack text-center"><img src="assets/images/attack.png" class="img-responsive"/></button>
-                <button class="attack text-center"><img src="assets/images/attack.png" class="img-responsive"/></button>
+                <div class="attack-title">Attaques de {{ game.players[1].name }}</div>
+                {% for attack in game.players[1].availableAttacks %}
+                    <button class="attack text-center" title="{{ attack.name }}"><img src="{{ attack.icon }}" class="img-responsive"/></button>
+                {% endfor %}
             </div>
-
         </div>
     </div>
 {% endblock %}
