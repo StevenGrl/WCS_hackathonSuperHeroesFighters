@@ -19,9 +19,8 @@ class GameController extends AbstractController
     public function index()
     {
         //Rien de spécial
-        return $this->twig->render('Game/index2.html.twig');
+        return $this->twig->render('Game/index.html.twig');
     }
-
 
 
     /**
@@ -32,32 +31,23 @@ class GameController extends AbstractController
 
         $game = Game::getInstance();
 
+        //Si aucun joueur
+        if (count($game->getPlayers()) < 2) {
 
-        if(count($game->getPlayers()) < 2 ){
-
-
-
-            if( !empty($_POST['players']) ){
-
-                $game->addPlayer('Brice');
-                $game->addPlayer('Cyril');
+            //Si nouveaux joueurs en POST
+            if (!empty($_POST['players'])) {
+                $newPlayersIds = $_POST['players'];
+                foreach ($newPlayersIds as $id) {
+                    $game->addPlayer($id);
+                }
                 $game->saveToSession();
-             //TODO   $game->addPlayers(...)
+
+            } else { //Sinon renvoyer vers vue select
+                return $this->selectPlayers();
             }
-            else{
-                return $this->selectPlayers();}
         }
 
-
-    return $this->twig->render('Game/play.html.twig');
-        //1. récupère info de sessions
-
-
-        //2. if POST['action'] => modifier session variables et log
-
-
-        //3. Fin du jeu ($this->end()) OU affiche la vue play ?
-
+        return $this->twig->render('Game/play.html.twig');
 
     }
 
@@ -69,10 +59,10 @@ class GameController extends AbstractController
     {
 
         $game = Game::getInstance();
-        $heroes = $game->getRandomSuperheroes();
+        $heroes = $game->getPickedSuperheroes();
         $data = compact('heroes');
 
-      return $this->twig->render('Game/selectplayer.html.twig', $data);
+        return $this->twig->render('Game/selectplayer.html.twig', $data);
 
     }
 

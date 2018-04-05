@@ -16,6 +16,8 @@ class Game
 
     private $players = [];
 
+    private $pickedSuperheroes;
+
     private function __construct()
     {
     }
@@ -51,9 +53,20 @@ class Game
         unset($session->game);
     }
 
-    public function addPlayer($player)
+    public function addPlayer(int $id)
     {
-        $this->players[] = $player;
+        // Get superhero by id
+        $found = null;
+        $picked = $this->getPickedSuperheroes();
+
+        foreach ($picked as $hero) {
+            if ($hero->id == $id) {
+                $found = $hero;
+                break;
+            }
+        }
+
+        $this->players[] = new Player($found);
 
     }
 
@@ -66,10 +79,15 @@ class Game
     }
 
 
+
+    /**
+     * API SUPERHEROES
+     */
+
     /**
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getRandomSuperheroes():array
+    private function getRandomSuperheroes(): array
     {
 //      $idPersos = [30,60,70,106,107,140,149,201,226,238,242,303,309,339,346,529,536,579,589,638];
         $client = new Client(['base_uri' => 'https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/',]);
@@ -88,6 +106,17 @@ class Game
             $randomSuperheros[] = $allSuperheroes[$key];
         }
         return $randomSuperheros;
+
+    }
+
+
+    public function getPickedSuperheroes()
+    {
+        if (empty($this->pickedSuperheroes)) {
+            $this->pickedSuperheroes = $this->getRandomSuperheroes();
+            $this->saveToSession();
+        }
+        return $this->pickedSuperheroes;
 
     }
 
