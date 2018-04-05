@@ -23,14 +23,20 @@
     </div>
 
     <div class="row select_thumb">
-    {% for i in 0..23 %}
+    {% for hero in heroes %}
         <div class="col-xs-4 col-md-1">
             <a href="#" class="thumbnail">
-                <img src="https://raw.githubusercontent.com/akabab/superhero-api/0.2.0/api/images/sm/1-a-bomb.jpg" alt="hero">
+                <img src="{{ hero.images.lg }}" alt="">
             </a>
         </div>
     {% endfor %}
     </div>
-    <button type="button" class="btn btn-primary">Valider</button>
+        {#ONLY FOR TESTING  #}
+        <form action="" method="post">
+            <input type="hidden" name="players[]" value="{{ heroes[0].id }}">
+            <input type="hidden" name="players[]" value="{{ heroes[1].id }}">
+            <button type="submit" class="btn btn-primary">Valider</button>
+
+        </form>
     </div>
 {% endblock %}

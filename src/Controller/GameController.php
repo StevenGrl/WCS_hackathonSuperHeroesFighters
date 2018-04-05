@@ -39,11 +39,21 @@ class GameController extends AbstractController
 
         if(count($game->getPlayers()) < 2 ){
 
-            return $this->selectPlayers();
+
+
+            if( !empty($_POST['players']) ){
+
+                $game->addPlayer('Brice');
+                $game->addPlayer('Cyril');
+                $game->saveToSession();
+             //TODO   $game->addPlayers(...)
+            }
+            else{
+                return $this->selectPlayers();}
         }
 
 
-
+    return $this->twig->render('Game/play.html.twig');
         //1. récupère info de sessions
 
 
@@ -61,9 +71,10 @@ class GameController extends AbstractController
      */
     public function selectPlayers()
     {
+
         $game = Game::getInstance();
-        $randomSuper = $game->getRandomSuperheroes();
-            $data = compact('randomSuper');
+        $heroes = $game->getRandomSuperheroes();
+        $data = compact('heroes');
 
       return $this->twig->render('Game/selectplayer.html.twig', $data);
 
