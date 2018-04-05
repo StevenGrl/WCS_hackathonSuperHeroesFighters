@@ -13,6 +13,6 @@ $routes = [
     'Game' => [ // Controller
         ['index', '/', 'GET'], // HOME PAGE
         ['play', '/play', ['GET','POST']], // HOME PAGE
-
+        ['selectplayer', '/selectplayer', ['GET']], // SELECT PLAYER PAGE
     ],
 ];
