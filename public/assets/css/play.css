@@ -2,6 +2,8 @@ body{
     background-image: url('../images/background.png');
     color:#EEE;
     font-family: 'Press Start 2P', cursive;
+    background-size: auto;
+    background-repeat: repeat;
 
 }
 
