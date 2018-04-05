@@ -11,6 +11,8 @@
 
 $routes = [
     'Game' => [ // Controller
-        ['index', '/', 'GET'], // action, url, method
+        ['index', '/', 'GET'], // HOME PAGE
+        ['play', '/play', ['GET','POST']], // HOME PAGE
+
     ],
 ];
