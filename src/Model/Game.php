@@ -16,8 +16,15 @@ class Game
 
     private $players = [];
 
+    private $currentPlayerIndex = -1;
+
     private $pickedSuperheroes;
 
+    private $log = [];
+
+    /**
+     *  INSTANCE
+     */
     private function __construct()
     {
     }
@@ -53,6 +60,10 @@ class Game
         unset($session->game);
     }
 
+    /**
+     * PLAYERS
+     */
+
     public function addPlayer(int $id)
     {
         // Get superhero by id
@@ -70,15 +81,46 @@ class Game
 
     }
 
-    /**
-     * @return array
-     */
+
     public function getPlayers(): array
     {
         return $this->players;
     }
 
 
+    /**
+     * LOGIQUE DE JEU
+     */
+
+    /**
+     * @return mixed
+     */
+    public function getCurrentPlayerIndex()
+    {
+        return $this->currentPlayerIndex;
+    }
+
+    /**
+     * @param int $currentPlayerIndex
+     */
+    public function setCurrentPlayerIndex(int $currentPlayerIndex): void
+    {
+        $this->currentPlayerIndex = $currentPlayerIndex;
+    }
+
+    public function nextTurn()
+    {
+        $currentPlayerIndex = $this->getCurrentPlayerIndex();
+
+        if ($currentPlayerIndex === 0) {
+            $nextPlayerIndex = 1;
+        } else {
+            $nextPlayerIndex = 0;
+        }
+
+        $this->setCurrentPlayerIndex($nextPlayerIndex);
+
+    }
 
     /**
      * API SUPERHEROES
