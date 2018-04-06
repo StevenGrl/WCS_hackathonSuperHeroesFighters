@@ -37,7 +37,7 @@ button[disabled] {
 
 .progress-bar{
     background-color: #070;
-    transition: width 0.3s ease;
+    transition: width 0.5s ease;
 
 }
 
@@ -57,7 +57,7 @@ button[disabled] {
     background:linear-gradient(to right, red, yellow);
     margin-top:5px;
     height: 40px;
-    transition: width 0.3s ease;
+    transition: width 0.5s ease;
 }
 
 .display{
