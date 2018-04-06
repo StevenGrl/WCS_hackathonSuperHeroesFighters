@@ -33,10 +33,18 @@ $(document).ready(function($){
     });
 
     $('#valid').click(function(){
-        if ($('#player1').val()==''){
+        if ($('#player1').val()=='' && $('#player1-image').attr('data')==''){
+
+        } else if ($('#player1').val()==''){
             $('#player1').val($('#player1-image').attr('data'));
+            $('#player1-image').removeClass('select-active');
+            $('#player2-image').addClass('select-active');
+            $('#valid').html('Valider<br>Joueur 2');
+        } else if ($('#player2').val()=='' && $('#player2-image').attr('data')==''){
+
         } else if ($('#player2').val()==''){
             $('#player2').val($('#player2-image').attr('data'));
+            $('#player1-image').addClass('select-active');
             $('#valid').html('FIGHT');
         } else {
             $('#form').submit();
