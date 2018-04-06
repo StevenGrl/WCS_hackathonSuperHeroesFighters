@@ -5,11 +5,12 @@ h1 {
 
 h2 {
     font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
 
 }
 
 .jumbotron {
-    font-family: Arial;
+    font-family: Arial, serif;
     text-align: left;
     opacity: 0.9;
     margin-top: 30px;
@@ -36,4 +37,12 @@ a {
 a:focus, a:hover {
     color: white;
     text-decoration: none;
+}
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
 }

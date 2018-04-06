@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+
     <div class="container">
         <h1>Résumé du combat</h1>
         <div class="container">
@@ -13,11 +14,12 @@
         <div class="jumbotron">
             <div class="row">
                 <div class="winner col-xs-6">
-                    <h2>Winner :</h2>
+                    <h2>Winner : <span class="green">{{ winner.name }}</span></h2>
                     <img src="{{ winner.image }}" alt="hero winner">
                 </div>
+
                 <div class="loser col-xs-6">
-                    <h2>Loser :</h2>
+                    <h2>Loser : <span class="red">{{ loser.name }}</span></h2>
                     <img src="{{ loser.image }}" alt="hero loser">
                 </div>
             </div>
