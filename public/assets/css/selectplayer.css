@@ -5,7 +5,6 @@ body {
     background-repeat: repeat;
 }
 
-
 /*.player2 {
     text-align: right;
 }*/
@@ -55,4 +54,8 @@ h1, h2 {
 
 .btn-primary:focus {
     background-color: #ffc11a;
+}
+
+.btn-primary:focus:hover{
+    background-color: black;
 }
