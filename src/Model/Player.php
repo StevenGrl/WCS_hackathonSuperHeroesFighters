@@ -290,7 +290,11 @@ class Player
      */
     public function setCurrentEnergy($currentEnergy)
     {
-        $this->currentEnergy = $currentEnergy;
+        if ($currentEnergy >= self::ENERGY) {
+            $this->currentEnergy = self::ENERGY;
+        } else {
+            $this->currentEnergy = $currentEnergy;
+        }
         return $this;
     }
 
