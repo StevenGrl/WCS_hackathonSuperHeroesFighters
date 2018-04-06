@@ -4,30 +4,30 @@
     <link rel="stylesheet" href="/assets/css/play.css">
 {% endblock %}
 {%  block content %}
-    <div class="container">
+    <div class="container" id="content">
         <div class="row lifebars align-middle" id="lifebars">
             <div class="col-xs-6 lifebar1 lifebar" id="lifebar1">
-                <div class="progressbar" style="width:{{ game.players[0].currentLife/5 }}%"></div>
+                <div id="play-progress1" class="progressbar" style="width:{{ game.players[0].currentLife/5 }}%"></div>
             </div>
             <div class="col-xs-6 lifebar2 lifebar" id="lifebar2">
-                <div class="progressbar" style="width:{{ game.players[1].currentLife/5 }}%"></div>
+                <div id="play-progress2"  class="progressbar" style="width:{{ game.players[1].currentLife/5 }}%"></div>
             </div>
             <div class="col-xs-6 energybar">
                 <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:{{game.players[0].currentEnergy}}%">
+                    <div id="play-energy1" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:{{game.players[0].currentEnergy}}%">
                     </div>
                 </div>
             </div>
             <div class="col-xs-6 energybar energybar2">
                 <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:{{game.players[1].currentEnergy}}%">
+                    <div id="play-energy2" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:{{game.players[1].currentEnergy}}%">
                     </div>
                 </div>
             </div>
             <div class="name col-xs-6 text-left">{{ game.players[0].name }}</div>
             <div class="name col-xs-6 text-right"> {{ game.players[1].name }}</div>
         </div>
-        <div class="row display">
+        <div class="row display" id="play-vs">
             <div class="col-xs-4 portrait1 text-align">
                 <img src="{{ game.players[0].image }}" class="img-responsive">
             </div>
@@ -47,7 +47,7 @@
                 <img src="{{ game.players[1].image }}" class="img-responsive">
             </div>
         </div>
-        <div class="row attacks-list">
+        <div class="row attacks-list" id="play-attacks">
             <div class="col-xs-6 attacks1 attacks">
                 <div class="attack-title text-left">Attaques de {{ game.players[0].name }}</div>
                 <div class="text-left">
