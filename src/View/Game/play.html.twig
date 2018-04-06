@@ -50,21 +50,25 @@
         <div class="row attacks-list">
             <div class="col-xs-6 attacks1 attacks">
                 <div class="attack-title text-left">Attaques de {{ game.players[0].name }}</div>
-                {% for attack in game.players[0].availableAttacks %}
+                <div class="text-left">
+                    {% for attack in game.players[0].availableAttacks %}
                     <form method="post">
                         <input type="hidden" name="attack" value="{{ attack.id }}">
                         <button type="submit" class="attack text-center" title="{{ attack.name }} {% if game.players[0].currentEnergy <= attack.energy %}Vous n'avez pas assez d'énergie pour lancer cette attaque{% endif %}" {% if(game.currentPlayerIndex==1) or game.players[0].currentEnergy <= attack.energy %}disabled{% endif %}><img src="{{ attack.icon }}" class="img-responsive"/></button>
                     </form>
-                {% endfor %}
+                    {% endfor %}
+                </div>
             </div>
             <div class="col-xs-6 attacks2 attacks">
                 <div class="attack-title text-right">Attaques de {{ game.players[1].name }}</div>
-                {% for attack in game.players[1].availableAttacks %}
-                    <form method="post">
-                        <input type="hidden" name="attack" value="{{ attack.id }}">
-                        <button type="submit" class="attack text-center" title="{{ attack.name }} {% if game.players[1].currentEnergy <= attack.energy %}Vous n'avez pas assez d'énergie pour lancer cette attaque{% endif %}" {% if(game.currentPlayerIndex==0) or game.players[1].currentEnergy <= attack.energy %}disabled{% endif %}><img src="{{ attack.icon }}" class="img-responsive"/></button>
-                    </form>
-                {% endfor %}
+                <div class="text-right">
+                    {% for attack in game.players[1].availableAttacks %}
+                        <form method="post">
+                            <input type="hidden" name="attack" value="{{ attack.id }}">
+                            <button type="submit" class="attack text-center" title="{{ attack.name }} {% if game.players[1].currentEnergy <= attack.energy %}Vous n'avez pas assez d'énergie pour lancer cette attaque{% endif %}" {% if(game.currentPlayerIndex==0) or game.players[1].currentEnergy <= attack.energy %}disabled{% endif %}><img src="{{ attack.icon }}" class="img-responsive"/></button>
+                        </form>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>

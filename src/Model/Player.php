@@ -94,7 +94,7 @@ class Player
             'form' => '',
             'energy' => 60,
             'icon' => 'assets/images/iconAttack/rocher.png',
-            'image' => 'https://media.giphy.com/media/DDBTVHo4MutmE/giphy.gif',
+            'image' => 'assets/images/gifAttack/lancerRocher.gif',
             'power' => 0
         ],[
             'id' => 6,
@@ -217,11 +217,11 @@ class Player
             $this->setAvailableAttacks(self::ATTACKS[8]);
         }
 
-        if($this->power <= self::ATTACKS[9]['base']){
+        if($this->combat <= self::ATTACKS[9]['base']){
             $this->setAvailableAttacks(self::ATTACKS[9]);
-        } elseif ($this->power <= self::ATTACKS[10]['base']) {
+        } elseif ($this->combat <= self::ATTACKS[10]['base']) {
             $this->setAvailableAttacks(self::ATTACKS[10]);
-        } elseif ($this->power <= self::ATTACKS[11]['base']) {
+        } elseif ($this->combat <= self::ATTACKS[11]['base']) {
             $this->setAvailableAttacks(self::ATTACKS[11]);
         }
 

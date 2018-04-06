@@ -145,7 +145,7 @@ class Game
 
             $attackCurrentPlayer = $currentPlayer->getStatAttack($attack);
 
-            $calcDamage = $attackCurrentPlayer - ($attackCurrentPlayer * $playerDefenser->getDurability() / 200);
+            $calcDamage = 2 * $attackCurrentPlayer - ($attackCurrentPlayer * $playerDefenser->getDurability() / 200);
 
             $currentLife = $playerDefenser->getCurrentLife();
             $pointsToLoose = $calcDamage;
