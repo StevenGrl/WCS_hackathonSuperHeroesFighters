@@ -39,6 +39,10 @@ button[disabled] {
     margin-top: 15px;
 }
 
+.energybar2{
+    transform: scale(-1,1);
+}
+
 .name{
 }
 
