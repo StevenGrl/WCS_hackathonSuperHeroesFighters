@@ -18,7 +18,10 @@
                     <img src="assets/images/choose_character.jpg" alt="hero loser">
                 </div>
             </div>
-            <h3>Résumé tour par tour inc (Fichier log)</h3>
+            {% for line in game.log %}
+                <p>{{ line }}</p>
+            {% endfor %}
+
         </div>
     </div>
 {% endblock %}
