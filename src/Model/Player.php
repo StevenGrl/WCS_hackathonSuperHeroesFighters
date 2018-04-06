@@ -88,7 +88,7 @@ class Player
             'form' => '',
             'energy' => 60,
             'icon' => 'assets/images/iconAttack/rocher.png',
-            'image' => 'https://media.giphy.com/media/DDBTVHo4MutmE/giphy.gif',
+            'image' => 'assets/images/gifAttack/lancerRocher.gif',
             'power' => 0
         ],[
             'id' => 6,
