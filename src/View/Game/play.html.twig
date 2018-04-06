@@ -5,13 +5,13 @@
 {% endblock %}
 {%  block content %}
     {{ dump(game.players[1].currentEnergy) }}
-    <div class="container">
+    <div class="container" id="content">
         <div class="row lifebars align-middle" id="lifebars">
             <div class="col-xs-6 lifebar1 lifebar" id="lifebar1">
-                <div class="progressbar" style="width:{{ game.players[0].currentLife/10 }}%"></div>
+                <div class="progressbar progressbar1" style="width:{{ game.players[0].currentLife/10 }}%"></div>
             </div>
             <div class="col-xs-6 lifebar2 lifebar" id="lifebar2">
-                <div class="progressbar" style="width:{{ game.players[1].currentLife/10 }}%"></div>
+                <div class="progressbar progressbar2" style="width:{{ game.players[1].currentLife/10 }}%"></div>
             </div>
             <div class="col-xs-6 energybar energybar1">
                 <div class="progress">

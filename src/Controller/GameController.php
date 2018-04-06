@@ -24,7 +24,6 @@ class GameController extends AbstractController
     }
 
 
-
     /**
      * Logique du jeu
      */
@@ -50,8 +49,7 @@ class GameController extends AbstractController
 
 
         //Début du game
-        if($game->getCurrentPlayerIndex() == -1)
-        {
+        if ($game->getCurrentPlayerIndex() == -1) {
             //todo choisir selon speed
             $randomChoice = false;
             $players = $game->getPlayers();
@@ -60,7 +58,7 @@ class GameController extends AbstractController
             } elseif ($players[0]->getSpeed() < $players[1]->getSpeed()) {
                 $game->setCurrentPlayerIndex(1);
             } else {
-                $game->setCurrentPlayerIndex(rand(0,1));
+                $game->setCurrentPlayerIndex(rand(0, 1));
                 $randomChoice = true;
             }
 
@@ -74,7 +72,7 @@ class GameController extends AbstractController
         }
 
 
-        if(isset($_POST['attack'])){
+        if (isset($_POST['attack'])) {
             //todo Check F5
             $attack = $game->doAttack($_POST['attack']);
             $game->setLastAction($attack);
@@ -84,12 +82,11 @@ class GameController extends AbstractController
 
         //Si un des deux joueurs est KO
         //Return vue end
-        if($game->isOneKo()){
+        if ($game->isOneKo()) {
             return $this->end();
         }
 
-
-        return $this->twig->render('Game/play.html.twig', ['game'=>$game]);
+        return $this->twig->render('Game/play.html.twig', ['game' => $game]);
 
     }
 
@@ -119,17 +116,16 @@ class GameController extends AbstractController
         $winnerLooser = $game->getPlayers();
 
         //Winner - looser
-        usort($winnerLooser, function($a, $b)
-        {
+        usort($winnerLooser, function ($a, $b) {
             return ($a->getCurrentLife() < $b->getCurrentLife()) ? -1 : 1;
         });
 
         $loser = $winnerLooser[0];
         $winner = $winnerLooser[1];
 
-        $data = compact('game','winner','loser');
+        $data = compact('game', 'winner', 'loser');
 
-        return $this->twig->render('Game/end.html.twig',$data);
+        return $this->twig->render('Game/end.html.twig', $data);
 
     }
 
