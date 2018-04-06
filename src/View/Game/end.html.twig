@@ -8,10 +8,17 @@
     <div class="container">
         <h1>Résumé du combat</h1>
         <div class="jumbotron">
-            <div class="container">
-                {{ dump(game.log) }}
-                Résumé tour par tour inc (Fichier log)
+            <div class="row">
+                <div class="winner col-xs-6">
+                    <h2>Winner :</h2>
+                    <img src="assets/images/choose_character.jpg" alt="hero winner">
+                </div>
+                <div class="loser col-xs-6">
+                    <h2>Loser :</h2>
+                    <img src="assets/images/choose_character.jpg" alt="hero loser">
+                </div>
             </div>
+            <h3>Résumé tour par tour inc (Fichier log)</h3>
         </div>
     </div>
 {% endblock %}
