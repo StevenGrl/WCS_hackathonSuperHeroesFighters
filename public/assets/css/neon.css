@@ -27,6 +27,8 @@ p {
     position: relative;
     top: 50vh;
     transition: all 600ms ease;
+    border: 2px solid black;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 #enter:hover {
