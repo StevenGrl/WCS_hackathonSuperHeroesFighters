@@ -7,6 +7,9 @@
 {% block content %}
     <div class="container">
         <h1>Résumé du combat</h1>
+        <div class="container">
+            <a id="enter" href="/" class="btn-lg" role="button">Revenir à l'accueil</a>
+        </div>
         <div class="jumbotron">
             <div class="row">
                 <div class="winner col-xs-6">
@@ -19,9 +22,8 @@
                 </div>
             </div>
             {% for line in game.log %}
-                <p>{{ line }}</p>
+                <p>{% if loop.index0 != 0 %}<strong>Tour {{ loop.index0 }}</strong>: {% endif %}{{ line }}</p>
             {% endfor %}
-
         </div>
     </div>
 {% endblock %}
