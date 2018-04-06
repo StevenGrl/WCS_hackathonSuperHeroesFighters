@@ -139,18 +139,22 @@ class Game
         }
         $playerDefenser = $this->getPlayers()[$defenser];
         $currentPlayer = $this->getPlayers()[$this->getCurrentPlayerIndex()];
-
-        $attackCurrentPlayer = $currentPlayer->getStatAttack($attack);
-
-        $calcDamage = $attackCurrentPlayer - ($attackCurrentPlayer * $playerDefenser->getDurability() / 200);
-
-        $currentLife = $playerDefenser->getCurrentLife();
-        $pointsToLoose = $calcDamage;
-        $currentLife -= $pointsToLoose;
-
-        //add To log
-
         $currentPlayerName = $currentPlayer->getName();
+        $pointsToLoose = 0;
+        if ($attack['stat'] !== 'currentEnergy') {
+
+            $attackCurrentPlayer = $currentPlayer->getStatAttack($attack);
+
+            $calcDamage = $attackCurrentPlayer - ($attackCurrentPlayer * $playerDefenser->getDurability() / 200);
+
+            $currentLife = $playerDefenser->getCurrentLife();
+            $pointsToLoose = $calcDamage;
+            $currentLife -= $pointsToLoose;
+
+            //add To log
+
+            $playerDefenser->setCurrentLife($currentLife);
+        }
         $currentPlayerEnergy = $currentPlayer->getCurrentEnergy();
         $currentPlayer->setCurrentEnergy($currentPlayerEnergy - $attack['energy']);
 
@@ -160,8 +164,6 @@ class Game
         $addToLog = sprintf('%s %s "%s" et inflige %.2f points de dégâts à %s', $currentPlayerName, $verb, $attackName, $pointsToLoose, $playerDefenserName);
 
         $this->addToLog($addToLog);
-
-        $playerDefenser->setCurrentLife($currentLife);
 
         return $attack;
     }
