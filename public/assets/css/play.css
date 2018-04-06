@@ -84,6 +84,7 @@ button[disabled] {
 
 .attacks-list{
     height:300px;
+    margin-top:50px;
 }
 
 .attack{
