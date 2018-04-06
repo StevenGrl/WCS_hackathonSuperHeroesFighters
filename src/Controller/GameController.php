@@ -53,14 +53,24 @@ class GameController extends AbstractController
         if($game->getCurrentPlayerIndex() == -1)
         {
             //todo choisir selon speed
+            $randomChoice = false;
             $players = $game->getPlayers();
-            if ($players[0]->getSpeed() >= $players[1]->getSpeed()) {
+            if ($players[0]->getSpeed() > $players[1]->getSpeed()) {
                 $game->setCurrentPlayerIndex(0);
-            } elseif ($players[0]->getSpeed() <= $players[1]->getSpeed()) {
+            } elseif ($players[0]->getSpeed() < $players[1]->getSpeed()) {
                 $game->setCurrentPlayerIndex(1);
             } else {
                 $game->setCurrentPlayerIndex(rand(0,1));
+                $randomChoice = true;
             }
+
+            $currentPlayer = $game->getPlayers()[$game->getCurrentPlayerIndex()];
+            $msg = $randomChoice ?
+                sprintf('%s a été tiré au sort pour commencer.', $currentPlayer->getName()) :
+                sprintf('%s commence car il est plus rapide.', $currentPlayer->getName());
+
+            $game->addToLog($msg);
+
         }
 
 
@@ -71,13 +81,14 @@ class GameController extends AbstractController
             $game->nextTurn();
 
         }
+        $game->saveToSession();
+
         //Si un des deux joueurs est KO
         //Return vue end
         if($game->isOneKo()){
             return $this->end();
         }
 
-        $game->saveToSession();
 
         return $this->twig->render('Game/play.html.twig', ['game'=>$game]);
 
@@ -105,7 +116,9 @@ class GameController extends AbstractController
     public function end()
     {
         //TODO get log and pass to twig
-        return $this->twig->render('Game/end.html.twig');
+        $game = Game::getInstance();
+
+        return $this->twig->render('Game/end.html.twig',['game'=>$game]);
 
     }
 

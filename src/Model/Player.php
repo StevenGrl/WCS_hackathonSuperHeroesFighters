@@ -11,7 +11,7 @@ namespace Model;
 
 class Player
 {
-    const LIFEPOINT = 1000;
+    const LIFEPOINT = 200;
 
     private $id;
     private $name;

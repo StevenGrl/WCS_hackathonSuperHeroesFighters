@@ -128,8 +128,8 @@ class Game
         $currentPlayerName = $currentPlayer->getName();
         $playerDefenserName = $playerDefenser->getName();
         $attackName = $attack['name'];
-        $verb = 'todo';
-        $addToLog = sprintf('%s %s %s inflige %d points de dégâts à %s', $currentPlayerName, $verb, $attackName, $pointsToLoose, $playerDefenserName);
+        $verb = $attack['verb'];
+        $addToLog = sprintf('%s %s "%s" et inflige %d points de dégâts à %s', $currentPlayerName, $verb, $attackName, $pointsToLoose, $playerDefenserName);
 
         $this->addToLog($addToLog);
 
