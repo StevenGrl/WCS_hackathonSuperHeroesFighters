@@ -217,11 +217,11 @@ class Player
             $this->setAvailableAttacks(self::ATTACKS[8]);
         }
 
-        if($this->power <= self::ATTACKS[9]['base']){
+        if($this->combat <= self::ATTACKS[9]['base']){
             $this->setAvailableAttacks(self::ATTACKS[9]);
-        } elseif ($this->power <= self::ATTACKS[10]['base']) {
+        } elseif ($this->combat <= self::ATTACKS[10]['base']) {
             $this->setAvailableAttacks(self::ATTACKS[10]);
-        } elseif ($this->power <= self::ATTACKS[11]['base']) {
+        } elseif ($this->combat <= self::ATTACKS[11]['base']) {
             $this->setAvailableAttacks(self::ATTACKS[11]);
         }
 
