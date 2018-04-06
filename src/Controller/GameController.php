@@ -67,7 +67,7 @@ class GameController extends AbstractController
             $currentPlayer = $game->getPlayers()[$game->getCurrentPlayerIndex()];
             $msg = $randomChoice ?
                 sprintf('%s a été tiré au sort pour commencer.', $currentPlayer->getName()) :
-                sprintf('%s commence car il est plus rapide.', $currentPlayer->getName());
+                sprintf('%s commence car grace à sa rapidité.', $currentPlayer->getName());
 
             $game->addToLog($msg);
 
