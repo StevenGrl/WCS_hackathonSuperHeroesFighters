@@ -2,8 +2,12 @@ h1 {
     color: white;
 }
 
+h2 {
+    font-family: 'Press Start 2P', cursive;
+}
+
 .jumbotron {
     font-family: Arial;
     text-align: left;
-    opacity: 0.7;
+    opacity: 0.9;
 }
