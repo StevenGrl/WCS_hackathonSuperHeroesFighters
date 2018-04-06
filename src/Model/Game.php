@@ -147,6 +147,9 @@ class Game
         //add To log
         $currentPlayer = $this->getPlayers()[$this->getCurrentPlayerIndex()];
         $currentPlayerName = $currentPlayer->getName();
+        $currentPlayerEnergy = $currentPlayer->getCurrentEnergy();
+        $currentPlayer->setCurrentEnergy($currentPlayerEnergy - $attack['energy']);
+
         $playerDefenserName = $playerDefenser->getName();
         $attackName = $attack['name'];
         $verb = $attack['verb'];
@@ -170,7 +173,9 @@ class Game
         }
 
         $this->setCurrentPlayerIndex($nextPlayerIndex);
-
+        $currentPlayer = $this->getPlayers()[$this->getCurrentPlayerIndex()];
+        $currentPlayerEnergy = $currentPlayer->getCurrentEnergy();
+        $currentPlayer->setCurrentEnergy($currentPlayerEnergy + 30);
     }
 
     public function isOneKo()

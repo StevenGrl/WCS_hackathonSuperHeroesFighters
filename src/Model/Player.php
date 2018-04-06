@@ -12,6 +12,7 @@ namespace Model;
 class Player
 {
     const LIFEPOINT = 1000;
+    const ENERGY = 100;
 
     private $id;
     private $name;
@@ -22,6 +23,7 @@ class Player
     private $power;
     private $combat;
     private $currentLife;
+    private $currentEnergy;
 
     private $image;
 
@@ -34,6 +36,7 @@ class Player
             'stat' =>  40,
             'verb' => 'lance',
             'form' => '',
+            'energy' => 0,
             'icon' => 'assets/images/iconAttack/book.jpg',
             'image' => 'https://media.giphy.com/media/l0HlQI7WEN5gmUzgQ/giphy.gif',
             'power' => 0
@@ -43,8 +46,9 @@ class Player
             'stat' =>  70,
             'verb' => 'use de',
             'form' => '',
+            'energy' => 30,
             'icon' => 'assets/images/iconAttack/brain.png',
-            'image' => 'https://media.giphy.com/media/MVlRUmPRsAnRe/giphy.gif',
+            'image' => 'https://media.giphy.com/media/xT5LMqQM9xTe0hVDS8/giphy.gif', //'https://media.giphy.com/media/MVlRUmPRsAnRe/giphy.gif',
             'power' => 0
         ],[
             'id' => 2,
@@ -52,8 +56,9 @@ class Player
             'stat' => 100,
             'verb' => 'lance',
             'form' => '',
+            'energy' => 60,
             'icon' => 'assets/images/iconAttack/sortilege.png',
-            'image' => 'https://media.giphy.com/media/l0ExsgrTuACbtPaqQ/giphy.gif',
+            'image' => 'assets/images/gifAttack/sortilege2.gif',
             'power' => 0
         ],[
             'id' => 3,
@@ -61,6 +66,7 @@ class Player
             'stat' => 40,
             'verb' => 'lance',
             'form' => '',
+            'energy' => 0,
             'icon' => 'assets/images/iconAttack/petitprojectile.jpg',
             'image' => 'https://media.giphy.com/media/XwhEhu60cZI88/giphy.gif',
             'power' => 0
@@ -70,6 +76,7 @@ class Player
             'stat' => 70,
             'verb' => 'lance',
             'form' => '',
+            'energy' => 30,
             'icon' => 'assets/images/iconAttack/grosprojectile.png',
             'image' => 'assets/images/gifAttack/grosProjectile.gif',
             'power' => 0
@@ -79,8 +86,9 @@ class Player
             'stat' => 100,
             'verb' => 'lance',
             'form' => '',
+            'energy' => 60,
             'icon' => 'assets/images/iconAttack/rocher.png',
-            'image' => 'assets/images/versus.png',
+            'image' => 'https://media.giphy.com/media/DDBTVHo4MutmE/giphy.gif',
             'power' => 0
         ],[
             'id' => 6,
@@ -88,8 +96,9 @@ class Player
             'stat' => 40,
             'verb' => 'lance des',
             'form' => '',
+            'energy' => 0,
             'icon' => 'assets/images/iconAttack/sphere2.png',
-            'image' => 'assets/images/versus.png',
+            'image' => 'https://media.giphy.com/media/4iVDK5pJgHZCg/giphy.gif',
             'power' => 0
         ],[
             'id' => 7,
@@ -97,8 +106,9 @@ class Player
             'stat' => 70,
             'verb' => 'lance une',
             'form' => '',
+            'energy' => 30,
             'icon' => 'assets/images/iconAttack/bouleenergie.png',
-            'image' => 'assets/images/versus.png',
+            'image' => 'https://media.giphy.com/media/jNQXX5dY3J4wE/giphy.gif',
             'power' => 0
         ],[
             'id' => 8,
@@ -106,6 +116,7 @@ class Player
             'stat' => 100,
             'verb' => 'lance',
             'form' => '',
+            'energy' => 60,
             'icon' => 'assets/images/iconAttack/laserbeam.png',
             'image' => 'assets/images/gifAttack/rayonlaser.gif',
             'power' => 0
@@ -115,6 +126,7 @@ class Player
             'stat' => 40,
             'verb' => 'met une petite',
             'form' => '',
+            'energy' => 0,
             'icon' => 'assets/images/iconAttack/slap2.png',
             'image' => 'assets/images/gifAttack/gifle.gif',
             'power' => 0
@@ -124,6 +136,7 @@ class Player
             'stat' => 70,
             'verb' => 'donne des',
             'form' => '',
+            'energy' => 30,
             'icon' => 'assets/images/iconAttack/23345424-kicking-foot-icon.jpg',
             'image' => 'assets/images/gifAttack/kicks.gif',
             'power' => 0
@@ -133,6 +146,7 @@ class Player
             'stat' => 100,
             'verb' => 'lance un super ultra',
             'form' => '',
+            'energy' => 60,
             'icon' => 'assets/images/iconAttack/attack.png',
             'image' => 'assets/images/gifAttack/megapunch.gif',
             'power' => 0
@@ -152,6 +166,7 @@ class Player
         $this->setPower($objFromApi->powerstats->power);
         $this->setCombat($objFromApi->powerstats->combat);
         $this->setCurrentLife(self::LIFEPOINT);
+        $this->setCurrentEnergy(self::ENERGY);
 
         $this->setImage($objFromApi->images->lg);
 
@@ -221,6 +236,24 @@ class Player
     public function setCurrentLife($currentLife)
     {
         $this->currentLife = $currentLife;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCurrentEnergy()
+    {
+        return $this->currentEnergy;
+    }
+
+    /**
+     * @param mixed $currentEnergy
+     * @return Player
+     */
+    public function setCurrentEnergy($currentEnergy)
+    {
+        $this->currentEnergy = $currentEnergy;
         return $this;
     }
 
