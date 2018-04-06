@@ -115,10 +115,22 @@ class GameController extends AbstractController
      */
     public function end()
     {
-        //TODO get log and pass to twig
         $game = Game::getInstance();
 
-        return $this->twig->render('Game/end.html.twig',['game'=>$game]);
+        $winnerLooser = $game->getPlayers();
+
+        //Winner - looser
+        usort($winnerLooser, function($a, $b)
+        {
+            return ($a->getCurrentLife() < $b->getCurrentLife()) ? -1 : 1;
+        });
+
+        $looser = $winnerLooser[0];
+        $winner = $winnerLooser[1];
+
+        $data = compact('game','winner','looser');
+
+        return $this->twig->render('Game/end.html.twig',$data);
 
     }
 
