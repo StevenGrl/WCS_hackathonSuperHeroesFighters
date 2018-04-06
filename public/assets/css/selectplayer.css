@@ -59,3 +59,7 @@ h1, h2 {
 .btn-primary:focus:hover{
     background-color: black;
 }
+
+.select-active{
+    box-shadow: 3px 3px 20px white;
+}
