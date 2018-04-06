@@ -35,6 +35,11 @@
                 <img src="{{ game.lastAction.image ?? 'assets/images/versus.png'}}" class="img-responsive">
                 <div id="messages" class="messages">
                     {# Message de rapport d'attaque a inserer ici #}
+                    {% for ligne in game.log %}
+                        {% if loop.revindex == 1 %}
+                            {{ ligne }}
+                        {% endif %}
+                    {% endfor %}
                     C'est au Joueur {{ game.currentPlayerIndex+1 }} d'attaquer.
                 </div>
             </div>
