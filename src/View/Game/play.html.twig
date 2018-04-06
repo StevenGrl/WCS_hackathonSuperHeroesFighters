@@ -4,16 +4,15 @@
     <link rel="stylesheet" href="/assets/css/play.css">
 {% endblock %}
 {%  block content %}
-    {{ dump(game.players[1].currentEnergy) }}
-    <div class="container" id="content">
+    <div class="container">
         <div class="row lifebars align-middle" id="lifebars">
             <div class="col-xs-6 lifebar1 lifebar" id="lifebar1">
-                <div class="progressbar progressbar1" style="width:{{ game.players[0].currentLife/10 }}%"></div>
+                <div class="progressbar" style="width:{{ game.players[0].currentLife/5 }}%"></div>
             </div>
             <div class="col-xs-6 lifebar2 lifebar" id="lifebar2">
-                <div class="progressbar progressbar2" style="width:{{ game.players[1].currentLife/10 }}%"></div>
+                <div class="progressbar" style="width:{{ game.players[1].currentLife/5 }}%"></div>
             </div>
-            <div class="col-xs-6 energybar energybar1">
+            <div class="col-xs-6 energybar">
                 <div class="progress">
                     <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:{{game.players[0].currentEnergy}}%">
                     </div>
@@ -36,6 +35,11 @@
                 <img src="{{ game.lastAction.image ?? 'assets/images/versus.png'}}" class="img-responsive">
                 <div id="messages" class="messages">
                     {# Message de rapport d'attaque a inserer ici #}
+                    {% for ligne in game.log %}
+                        {% if loop.revindex == 1 %}
+                            {{ ligne }}
+                        {% endif %}
+                    {% endfor %}
                     C'est au Joueur {{ game.currentPlayerIndex+1 }} d'attaquer.
                 </div>
             </div>
@@ -49,7 +53,7 @@
                 {% for attack in game.players[0].availableAttacks %}
                     <form method="post">
                         <input type="hidden" name="attack" value="{{ attack.id }}">
-                        <button type="submit" class="attack text-center" title="{% if game.players[0].currentEnergy <= attack.energy %}Vous n'avez pas assez d'énergie pour lancer cette attaque{% endif %}{{ attack.name }}" {% if(game.currentPlayerIndex==1) or game.players[0].currentEnergy < attack.energy %}disabled{% endif %}><img src="{{ attack.icon }}" class="img-responsive"/></button>
+                        <button type="submit" class="attack text-center" title="{{ attack.name }} {% if game.players[0].currentEnergy <= attack.energy %}Vous n'avez pas assez d'énergie pour lancer cette attaque{% endif %}" {% if(game.currentPlayerIndex==1) or game.players[0].currentEnergy <= attack.energy %}disabled{% endif %}><img src="{{ attack.icon }}" class="img-responsive"/></button>
                     </form>
                 {% endfor %}
             </div>
@@ -58,7 +62,7 @@
                 {% for attack in game.players[1].availableAttacks %}
                     <form method="post">
                         <input type="hidden" name="attack" value="{{ attack.id }}">
-                        <button type="submit" class="attack text-center" title="{% if game.players[1].currentEnergy <= attack.energy %}Vous n'avez pas assez d'énergie pour lancer cette attaque{% endif %} {{ attack.name }}" {% if(game.currentPlayerIndex==0) or game.players[1].currentEnergy < attack.energy %}disabled{% endif %}><img src="{{ attack.icon }}" class="img-responsive"/></button>
+                        <button type="submit" class="attack text-center" title="{{ attack.name }} {% if game.players[1].currentEnergy <= attack.energy %}Vous n'avez pas assez d'énergie pour lancer cette attaque{% endif %}" {% if(game.currentPlayerIndex==0) or game.players[1].currentEnergy <= attack.energy %}disabled{% endif %}><img src="{{ attack.icon }}" class="img-responsive"/></button>
                     </form>
                 {% endfor %}
             </div>

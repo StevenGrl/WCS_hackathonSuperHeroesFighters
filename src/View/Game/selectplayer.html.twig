@@ -7,9 +7,8 @@
 {% block content %}
     <div class="container">
     <h1>Selectionnez votre personnage</h1>
-
     <div class="row">
-        <div class="col-xs-6 player1">
+        <div class="col-xs-6 player1" >
             <span><h2 id="name1">Joueur 1 </h2></span>
         </div>
         <div class="col-xs-6 player2 text-right">
@@ -17,18 +16,18 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-xs-4 player1">
-            <img id="player1-image" src="assets/images/choose_character.jpg" data="" class="img-responsive" alt="player one">
+        <div class="col-xs-4 player1 flip">
+            <img id="player1-image" src="assets/images/choose_character.jpg" data="" class="img-responsive select-active" alt="player one">
         </div>
         <div class="col-xs-4 text-center">
             <form action="" method="post" id="form">
                 <input type="hidden" name="players[]" id="player1" value="">
                 <input type="hidden" name="players[]" id="player2" value="">
-                <button type="button" class="btn btn-primary" id="valid">Valider</button>
+                <button type="button" class="btn btn-primary" id="valid">Valider<br>Joueur 1</button>
             </form>
         </div>
         <div class="col-xs-4 player2 pull-right">
-            <img id="player2-image" src="assets/images/choose_character_mirror.jpg" data="" class="img-responsive" alt="player one">
+            <img id="player2-image" src="assets/images/choose_character_mirror.jpg" data="" class="img-responsive pull-right" alt="player one">
         </div>
     </div>
 

@@ -35,6 +35,10 @@ button[disabled] {
     transform: scale(-1,1);
 }
 
+.progress-bar{
+    background-color: #070;
+}
+
 .energybar{
     margin-top: 15px;
 }
@@ -59,11 +63,11 @@ button[disabled] {
 
 .versus{
     height:250px;
-    top:50px;
+    top:20px;
 }
 
 .messages{
-    margin-top: 25%;
+    margin-top: 20px;
     height:100px;
 }
 
