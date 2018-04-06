@@ -175,7 +175,7 @@ class Game
         $this->setCurrentPlayerIndex($nextPlayerIndex);
         $currentPlayer = $this->getPlayers()[$this->getCurrentPlayerIndex()];
         $currentPlayerEnergy = $currentPlayer->getCurrentEnergy();
-        $currentPlayer->setCurrentEnergy($currentPlayerEnergy + 30);
+        $currentPlayer->setCurrentEnergy($currentPlayerEnergy + 10);
     }
 
     public function isOneKo()
