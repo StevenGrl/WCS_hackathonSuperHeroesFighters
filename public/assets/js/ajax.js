@@ -11,7 +11,7 @@ $(function () {
 
                 var newContent = $($.parseHTML(data)).filter("#content");
                 if (newContent.length == 0) {
-                    location.reload();
+                   window.location.href = '/play';
 
                 } else {
 
