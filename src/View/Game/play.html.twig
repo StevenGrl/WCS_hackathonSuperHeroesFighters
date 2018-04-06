@@ -49,7 +49,7 @@
         </div>
         <div class="row attacks-list">
             <div class="col-xs-6 attacks1 attacks">
-                <div class="attack-title">Attaques de {{ game.players[0].name }}</div>
+                <div class="attack-title text-left">Attaques de {{ game.players[0].name }}</div>
                 {% for attack in game.players[0].availableAttacks %}
                     <form method="post">
                         <input type="hidden" name="attack" value="{{ attack.id }}">
@@ -58,7 +58,7 @@
                 {% endfor %}
             </div>
             <div class="col-xs-6 attacks2 attacks">
-                <div class="attack-title">Attaques de {{ game.players[1].name }}</div>
+                <div class="attack-title text-right">Attaques de {{ game.players[1].name }}</div>
                 {% for attack in game.players[1].availableAttacks %}
                     <form method="post">
                         <input type="hidden" name="attack" value="{{ attack.id }}">
