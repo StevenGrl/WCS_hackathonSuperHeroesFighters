@@ -37,6 +37,8 @@ button[disabled] {
 
 .progress-bar{
     background-color: #070;
+    transition: width 0.3s ease;
+
 }
 
 .energybar{
@@ -55,6 +57,7 @@ button[disabled] {
     background:linear-gradient(to right, red, yellow);
     margin-top:5px;
     height: 40px;
+    transition: width 0.3s ease;
 }
 
 .display{

@@ -14,7 +14,15 @@ $(function () {
                     location.reload();
 
                 } else {
-                    $(document).find('#content').html(newContent.children());
+
+                    $('#play-vs').html(newContent.find('#play-vs').children())
+                    $('#play-attacks').html(newContent.find('#play-attacks').children())
+
+                    $('#play-progress1').css('width', newContent.find('#play-progress1').css('width'));
+                    $('#play-progress2').css('width', newContent.find('#play-progress2').css('width'));
+
+                    $('#play-energy1').css('width', newContent.find('#play-energy1').css('width'));
+                    $('#play-energy2').css('width', newContent.find('#play-energy2').css('width'));
 
                 }
 
