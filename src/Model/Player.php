@@ -150,6 +150,16 @@ class Player
             'icon' => 'assets/images/iconAttack/attack.png',
             'image' => 'assets/images/gifAttack/megapunch.gif',
             'power' => 0
+        ],[
+            'id' => 12,
+            'name' => 'Recharger son énergie',
+            'stat' => 0,
+            'verb' => 'attends pour',
+            'form' => '',
+            'energy' => -50,
+            'icon' => 'assets/images/iconAttack/reload.png',
+            'image' => 'https://media.giphy.com/media/AuQvTyPtkZu8w/giphy.gif',
+            'power' => 0
         ],
     ];
 
@@ -201,6 +211,9 @@ class Player
         } elseif ($this->power <= self::ATTACKS[11]['stat']) {
             $this->setAvailableAttacks(self::ATTACKS[11]);
         }
+
+        $this->setAvailableAttacks(self::ATTACKS[12]);
+
     }
 
     /**

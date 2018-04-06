@@ -49,7 +49,7 @@
                 {% for attack in game.players[0].availableAttacks %}
                     <form method="post">
                         <input type="hidden" name="attack" value="{{ attack.id }}">
-                        <button type="submit" class="attack text-center" title="{% if game.players[0].currentEnergy < attack.energy %}Vous n'avez pas assez d'énergie pour lancer cette attaque{% endif %}{{ attack.name }}" {% if(game.currentPlayerIndex==1) or game.players[0].currentEnergy < attack.energy %}disabled{% endif %}><img src="{{ attack.icon }}" class="img-responsive"/></button>
+                        <button type="submit" class="attack text-center" title="{% if game.players[0].currentEnergy <= attack.energy %}Vous n'avez pas assez d'énergie pour lancer cette attaque{% endif %}{{ attack.name }}" {% if(game.currentPlayerIndex==1) or game.players[0].currentEnergy < attack.energy %}disabled{% endif %}><img src="{{ attack.icon }}" class="img-responsive"/></button>
                     </form>
                 {% endfor %}
             </div>
@@ -58,7 +58,7 @@
                 {% for attack in game.players[1].availableAttacks %}
                     <form method="post">
                         <input type="hidden" name="attack" value="{{ attack.id }}">
-                        <button type="submit" class="attack text-center" title="{% if game.players[1].currentEnergy < attack.energy %}Vous n'avez pas assez d'énergie pour lancer cette attaque{% endif %} {{ attack.name }}" {% if(game.currentPlayerIndex==0) or game.players[1].currentEnergy < attack.energy %}disabled{% endif %}><img src="{{ attack.icon }}" class="img-responsive"/></button>
+                        <button type="submit" class="attack text-center" title="{% if game.players[1].currentEnergy <= attack.energy %}Vous n'avez pas assez d'énergie pour lancer cette attaque{% endif %} {{ attack.name }}" {% if(game.currentPlayerIndex==0) or game.players[1].currentEnergy < attack.energy %}disabled{% endif %}><img src="{{ attack.icon }}" class="img-responsive"/></button>
                     </form>
                 {% endfor %}
             </div>
