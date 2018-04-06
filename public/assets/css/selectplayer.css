@@ -43,6 +43,7 @@ h1, h2 {
     background-color: #ffc11a;
     font-size: 30px;
     transition: all 600ms ease;
+    border: none;
 }
 
 .btn-primary:hover {
