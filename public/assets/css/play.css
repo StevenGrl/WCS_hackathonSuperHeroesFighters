@@ -4,10 +4,15 @@ body{
     font-family: 'Press Start 2P', cursive;
     background-size: auto;
     background-repeat: repeat;
+    overflow: hidden;
 }
 
 form {
     display: inline;
+}
+
+button[disabled] {
+    opacity: 0.3;
 }
 
 .lifebars{
