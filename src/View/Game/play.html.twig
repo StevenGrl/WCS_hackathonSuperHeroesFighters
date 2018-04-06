@@ -65,3 +65,7 @@
         </div>
     </div>
 {% endblock %}
+{% block javascript %}
+{{ parent() }}
+<script src="assets/js/ajax.js"></script>
+{% endblock %}
