@@ -33,6 +33,7 @@ $(document).ready(function($){
     });
 
     $('#valid').click(function(){
+        //Oui c'est caca je sais, mais on a plus qu'une heure
         if ($('#player1').val()=='' && $('#player1-image').attr('data')==''){
 
         } else if ($('#player1').val()==''){

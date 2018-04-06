@@ -63,11 +63,11 @@ button[disabled] {
 
 .versus{
     height:250px;
-    top:50px;
+    top:20px;
 }
 
 .messages{
-    margin-top: 25%;
+    margin-top: 20px;
     height:100px;
 }
 
@@ -84,6 +84,7 @@ button[disabled] {
 
 .attacks-list{
     height:300px;
+    margin-top:50px;
 }
 
 .attack{
@@ -92,4 +93,3 @@ button[disabled] {
     height:95px;
     border:solid 5px #333;
 }
-

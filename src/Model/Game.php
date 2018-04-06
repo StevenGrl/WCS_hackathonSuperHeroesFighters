@@ -138,26 +138,32 @@ class Game
             $defenser = 0;
         }
         $playerDefenser = $this->getPlayers()[$defenser];
-
-        $currentLife = $playerDefenser->getCurrentLife();
-
-        $pointsToLoose = $attack['stat'];
-        $currentLife -= $pointsToLoose;
-
-        //add To log
         $currentPlayer = $this->getPlayers()[$this->getCurrentPlayerIndex()];
         $currentPlayerName = $currentPlayer->getName();
+        $pointsToLoose = 0;
+        if ($attack['stat'] !== 'currentEnergy') {
+
+            $attackCurrentPlayer = $currentPlayer->getStatAttack($attack);
+
+            $calcDamage = $attackCurrentPlayer - ($attackCurrentPlayer * $playerDefenser->getDurability() / 200);
+
+            $currentLife = $playerDefenser->getCurrentLife();
+            $pointsToLoose = $calcDamage;
+            $currentLife -= $pointsToLoose;
+
+            //add To log
+
+            $playerDefenser->setCurrentLife($currentLife);
+        }
         $currentPlayerEnergy = $currentPlayer->getCurrentEnergy();
         $currentPlayer->setCurrentEnergy($currentPlayerEnergy - $attack['energy']);
 
         $playerDefenserName = $playerDefenser->getName();
         $attackName = $attack['name'];
         $verb = $attack['verb'];
-        $addToLog = sprintf('%s %s "%s" et inflige %d points de dégâts à %s', $currentPlayerName, $verb, $attackName, $pointsToLoose, $playerDefenserName);
+        $addToLog = sprintf('%s %s "%s" et inflige %.2f points de dégâts à %s', $currentPlayerName, $verb, $attackName, $pointsToLoose, $playerDefenserName);
 
         $this->addToLog($addToLog);
-
-        $playerDefenser->setCurrentLife($currentLife);
 
         return $attack;
     }
@@ -172,10 +178,13 @@ class Game
             $nextPlayerIndex = 0;
         }
 
-        $this->setCurrentPlayerIndex($nextPlayerIndex);
         $currentPlayer = $this->getPlayers()[$this->getCurrentPlayerIndex()];
+
         $currentPlayerEnergy = $currentPlayer->getCurrentEnergy();
         $currentPlayer->setCurrentEnergy($currentPlayerEnergy + 10);
+
+        $this->setCurrentPlayerIndex($nextPlayerIndex);
+
     }
 
     public function isOneKo()
