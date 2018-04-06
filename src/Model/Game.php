@@ -20,6 +20,8 @@ class Game
 
     private $pickedSuperheroes;
 
+    private $lastAction;
+
     private $log = [];
 
     /**
@@ -59,6 +61,25 @@ class Game
         $session = Session::getInstance();
         unset($session->game);
     }
+
+    /**
+     * @return mixed
+     */
+    public function getLastAction()
+    {
+        return $this->lastAction;
+    }
+
+    /**
+     * @param mixed $lastAction
+     * @return Game
+     */
+    public function setLastAction($lastAction)
+    {
+        $this->lastAction = $lastAction;
+        return $this;
+    }
+
 
     /**
      * PLAYERS
@@ -134,6 +155,8 @@ class Game
         $this->addToLog($addToLog);
 
         $playerDefenser->setCurrentLife($currentLife);
+
+        return $attack;
     }
 
     public function nextTurn()

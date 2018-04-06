@@ -20,7 +20,7 @@
                 <img src="{{ game.players[0].image }}" class="img-responsive">
             </div>
             <div class="col-xs-4 versus">
-                <img src="assets/images/versus.png" class="img-responsive">
+                <img src="{{ game.lastAction.image ?? 'assets/images/versus.png'}}" class="img-responsive">
                 <div id="messages" class="messages">
                     {# Message de rapport d'attaque a inserer ici #}
                     C'est au Joueur {{ game.currentPlayerIndex+1 }} d'attaquer.

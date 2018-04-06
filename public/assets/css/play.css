@@ -4,7 +4,7 @@ body{
     font-family: 'Press Start 2P', cursive;
     background-size: auto;
     background-repeat: repeat;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 form {
@@ -55,6 +55,7 @@ button[disabled] {
 }
 
 .messages{
+    margin-top: 25%;
     height:100px;
 }
 

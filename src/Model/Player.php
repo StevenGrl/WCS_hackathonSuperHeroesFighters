@@ -11,7 +11,7 @@ namespace Model;
 
 class Player
 {
-    const LIFEPOINT = 200;
+    const LIFEPOINT = 1000;
 
     private $id;
     private $name;
@@ -80,7 +80,7 @@ class Player
             'verb' => 'lance',
             'form' => '',
             'icon' => 'assets/images/iconAttack/rocher.png',
-            'image' => '',
+            'image' => 'assets/images/versus.png',
             'power' => 0
         ],[
             'id' => 6,
@@ -89,7 +89,7 @@ class Player
             'verb' => 'lance des',
             'form' => '',
             'icon' => 'assets/images/iconAttack/sphere2.png',
-            'image' => '',
+            'image' => 'assets/images/versus.png',
             'power' => 0
         ],[
             'id' => 7,
@@ -98,7 +98,7 @@ class Player
             'verb' => 'lance une',
             'form' => '',
             'icon' => 'assets/images/iconAttack/bouleenergie.png',
-            'image' => '',
+            'image' => 'assets/images/versus.png',
             'power' => 0
         ],[
             'id' => 8,
@@ -107,7 +107,7 @@ class Player
             'verb' => 'lance',
             'form' => '',
             'icon' => 'assets/images/iconAttack/laserbeam.png',
-            'image' => '',
+            'image' => 'assets/images/gifAttack/rayonlaser.gif',
             'power' => 0
         ],[
             'id' => 9,
@@ -125,7 +125,7 @@ class Player
             'verb' => 'donne des',
             'form' => '',
             'icon' => 'assets/images/iconAttack/23345424-kicking-foot-icon.jpg',
-            'image' => '',
+            'image' => 'assets/images/gifAttack/kicks.gif',
             'power' => 0
         ],[
             'id' => 11,
@@ -134,7 +134,7 @@ class Player
             'verb' => 'lance un super ultra',
             'form' => '',
             'icon' => 'assets/images/iconAttack/attack.png',
-            'image' => '',
+            'image' => 'assets/images/gifAttack/megapunch.gif',
             'power' => 0
         ],
     ];
