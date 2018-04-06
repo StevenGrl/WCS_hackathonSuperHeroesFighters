@@ -14,11 +14,11 @@
             <div class="row">
                 <div class="winner col-xs-6">
                     <h2>Winner :</h2>
-                    <img src="assets/images/choose_character.jpg" alt="hero winner">
+                    <img src="{{ winner.image }}" alt="hero winner">
                 </div>
                 <div class="loser col-xs-6">
                     <h2>Loser :</h2>
-                    <img src="assets/images/choose_character.jpg" alt="hero loser">
+                    <img src="{{ loser.image }}" alt="hero loser">
                 </div>
             </div>
             {% for line in game.log %}

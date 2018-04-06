@@ -125,10 +125,10 @@ class GameController extends AbstractController
             return ($a->getCurrentLife() < $b->getCurrentLife()) ? -1 : 1;
         });
 
-        $looser = $winnerLooser[0];
+        $loser = $winnerLooser[0];
         $winner = $winnerLooser[1];
 
-        $data = compact('game','winner','looser');
+        $data = compact('game','winner','loser');
 
         return $this->twig->render('Game/end.html.twig',$data);
 
