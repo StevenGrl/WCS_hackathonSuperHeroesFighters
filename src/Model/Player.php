@@ -33,7 +33,8 @@ class Player
         [
             'id' => 0,
             'name' => 'Jet de livre',
-            'stat' =>  40,
+            'stat' =>  'intelligence',
+            'base' => 40,
             'verb' => 'lance',
             'form' => '',
             'energy' => 0,
@@ -43,7 +44,8 @@ class Player
         ],[
             'id' => 1,
             'name' => 'Ruse',
-            'stat' =>  70,
+            'stat' => 'intelligence',
+            'base' =>  70,
             'verb' => 'use de',
             'form' => '',
             'energy' => 30,
@@ -53,7 +55,8 @@ class Player
         ],[
             'id' => 2,
             'name' => 'Sortilège',
-            'stat' => 100,
+            'stat' => 'intelligence',
+            'base' => 100,
             'verb' => 'lance',
             'form' => '',
             'energy' => 60,
@@ -63,7 +66,8 @@ class Player
         ],[
             'id' => 3,
             'name' => 'Petit projectile',
-            'stat' => 40,
+            'stat' => 'strength',
+            'base' => 40,
             'verb' => 'lance',
             'form' => '',
             'energy' => 0,
@@ -73,7 +77,8 @@ class Player
         ],[
             'id' => 4,
             'name' => 'Gros projectile',
-            'stat' => 70,
+            'stat' => 'strength',
+            'base' => 70,
             'verb' => 'lance',
             'form' => '',
             'energy' => 30,
@@ -83,7 +88,8 @@ class Player
         ],[
             'id' => 5,
             'name' => 'Gros rocher',
-            'stat' => 100,
+            'stat' => 'strength',
+            'base' => 100,
             'verb' => 'lance',
             'form' => '',
             'energy' => 60,
@@ -93,7 +99,8 @@ class Player
         ],[
             'id' => 6,
             'name' => 'Sphères lumineuses',
-            'stat' => 40,
+            'stat' => 'power',
+            'base' => 40,
             'verb' => 'lance des',
             'form' => '',
             'energy' => 0,
@@ -103,7 +110,8 @@ class Player
         ],[
             'id' => 7,
             'name' => 'Boule d\'énergie',
-            'stat' => 70,
+            'stat' => 'power',
+            'base' => 70,
             'verb' => 'lance une',
             'form' => '',
             'energy' => 30,
@@ -113,7 +121,8 @@ class Player
         ],[
             'id' => 8,
             'name' => 'Rayon laser',
-            'stat' => 100,
+            'stat' => 'power',
+            'base' => 100,
             'verb' => 'lance',
             'form' => '',
             'energy' => 60,
@@ -123,7 +132,8 @@ class Player
         ],[
             'id' => 9,
             'name' => 'Claque',
-            'stat' => 40,
+            'stat' => 'combat',
+            'base' => 40,
             'verb' => 'met une petite',
             'form' => '',
             'energy' => 0,
@@ -133,7 +143,8 @@ class Player
         ],[
             'id' => 10,
             'name' => 'Kicks',
-            'stat' => 70,
+            'stat' => 'combat',
+            'base' => 70,
             'verb' => 'donne des',
             'form' => '',
             'energy' => 30,
@@ -143,7 +154,8 @@ class Player
         ],[
             'id' => 11,
             'name' => 'MEGA PUNCH',
-            'stat' => 100,
+            'stat' => 'combat',
+            'base' => 100,
             'verb' => 'lance un super ultra',
             'form' => '',
             'energy' => 60,
@@ -153,7 +165,8 @@ class Player
         ],[
             'id' => 12,
             'name' => 'Recharger son énergie',
-            'stat' => 0,
+            'stat' => 'currentEnergy',
+            'base' => 50,
             'verb' => 'attends pour',
             'form' => '',
             'energy' => -50,
@@ -180,35 +193,35 @@ class Player
 
         $this->setImage($objFromApi->images->lg);
 
-        if($this->intelligence <= self::ATTACKS[0]['stat']){
+        if($this->intelligence <= self::ATTACKS[0]['base']){
             $this->setAvailableAttacks(self::ATTACKS[0]);
-        } elseif ($this->intelligence <= self::ATTACKS[1]['stat']) {
+        } elseif ($this->intelligence <= self::ATTACKS[1]['base']) {
             $this->setAvailableAttacks(self::ATTACKS[1]);
-        } elseif ($this->intelligence <= self::ATTACKS[2]['stat']) {
+        } elseif ($this->intelligence <= self::ATTACKS[2]['base']) {
             $this->setAvailableAttacks(self::ATTACKS[2]);
         }
 
-        if($this->strength <= self::ATTACKS[3]['stat']){
+        if($this->strength <= self::ATTACKS[3]['base']){
             $this->setAvailableAttacks(self::ATTACKS[3]);
-        } elseif ($this->strength <= self::ATTACKS[4]['stat']) {
+        } elseif ($this->strength <= self::ATTACKS[4]['base']) {
             $this->setAvailableAttacks(self::ATTACKS[4]);
-        } elseif ($this->strength <= self::ATTACKS[5]['stat']) {
+        } elseif ($this->strength <= self::ATTACKS[5]['base']) {
             $this->setAvailableAttacks(self::ATTACKS[5]);
         }
 
-        if($this->power <= self::ATTACKS[6]['stat']){
+        if($this->power <= self::ATTACKS[6]['base']){
             $this->setAvailableAttacks(self::ATTACKS[6]);
-        } elseif ($this->power <= self::ATTACKS[7]['stat']) {
+        } elseif ($this->power <= self::ATTACKS[7]['base']) {
             $this->setAvailableAttacks(self::ATTACKS[7]);
-        } elseif ($this->power <= self::ATTACKS[8]['stat']) {
+        } elseif ($this->power <= self::ATTACKS[8]['base']) {
             $this->setAvailableAttacks(self::ATTACKS[8]);
         }
 
-        if($this->power <= self::ATTACKS[9]['stat']){
+        if($this->power <= self::ATTACKS[9]['base']){
             $this->setAvailableAttacks(self::ATTACKS[9]);
-        } elseif ($this->power <= self::ATTACKS[10]['stat']) {
+        } elseif ($this->power <= self::ATTACKS[10]['base']) {
             $this->setAvailableAttacks(self::ATTACKS[10]);
-        } elseif ($this->power <= self::ATTACKS[11]['stat']) {
+        } elseif ($this->power <= self::ATTACKS[11]['base']) {
             $this->setAvailableAttacks(self::ATTACKS[11]);
         }
 
@@ -232,6 +245,17 @@ class Player
     {
         $this->availableAttacks[] = $attack;
         return $this;
+    }
+
+    public function getStatAttack($attack)
+    {
+        $damage = $this->getDamageByStat($attack['stat']);
+        return $damage;
+    }
+
+    public function getDamageByStat($stat)
+    {
+        return $this->$stat;
     }
 
     /**
