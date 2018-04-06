@@ -166,7 +166,7 @@ class Player
             'id' => 12,
             'name' => 'Recharger son énergie',
             'stat' => 'currentEnergy',
-            'base' => 50,
+            'base' => 0,
             'verb' => 'attends pour',
             'form' => '',
             'energy' => -50,
